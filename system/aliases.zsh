@@ -8,3 +8,13 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+# disk usage with human sizes and minimal depth
+alias du1='du -h --max-depth=1'
+alias fn='find . -name'
+alias hi='history | tail -20'
+
+# redis for txjp
+alias redisstart='launchctl start ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
+alias redisstop='launchctl stop ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
+alias redisclear='redis-cli del solrQueryCache'
