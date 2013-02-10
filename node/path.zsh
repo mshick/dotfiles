@@ -11,9 +11,7 @@ if [[ -d $dir ]];
 fi
 
 # NPM binaries
-for dir (
-  /usr/local/share/npm
-)
-if [[ -d $dir ]];
-  then export PATH=$dir/bin:$PATH;
+npm=/usr/local/share/npm
+if [[ -d $npm ]];
+  then export PATH=$npm/bin:$PATH;
 fi
