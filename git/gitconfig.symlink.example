@@ -2,36 +2,100 @@
 #
 
 [hub]
-        protocol = https
+    protocol = https
+
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
-        helper = osxkeychain
+    name = AUTHORNAME
+    email = AUTHOREMAIL
+    helper = osxkeychain
+
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+    browse       = !hub browse
+    w            = !hub browse
+    compare      = !hub compare
+    cb           = !git-cut-branch
+    sh           = !git-sh
+    grab         = !git-grab
+    thanks       = !git-thanks
+    track        = !git-track
+    ll           = log --pretty=oneline --abbrev-commit --max-count=15
+    wip          = !git add -u && git commit -m ...
+    wipc         = !date >> WIP && git add WIP && git commit -m ...
+    fp           = format-patch --stdout
+    ci           = commit
+    x            = checkout HEAD
+    bv           = !git branch --color -v | cut -c1-100
+    incoming     = !git-incoming
+    in           = !git-incoming
+    outgoing     = !git-outgoing
+    out          = !git-outgoing
+    s            = status -sb -uno --ignore-submodules=untracked
+    st           = status
+    sa           = status -sb --ignore-submodules=untracked
+    co = checkout
+    promote = !$ZSH/bin/git-promote
+    wtf     = !$ZSH/bin/git-wtf
+    rank-contributers = !$ZSH/bin/git-rank-contributers
+    count   = !git shortlog -sn
+
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
+    excludesfile = ~/.gitignore
+    editor = vim
+    filemode = true
+    logallrefupdates = true
+    whitespace = space-before-tab, trailing-space
+
 [help]
-        autocorrect = 1
+    browser = open
+
+[branch]
+    autosetupmerge = true
+        autosetuprebase = always
+
+[diff]
+    renames = copies
+    mnemonicprefix = true
+
+[sendemail]
+
+[apply]
+    whitespace = nowarn
+
+[mergetool]
+    keepBackup = false
+
+[difftool]
+    prompt = false
+
+[help]
+    autocorrect = 1
+
+[color]
+    ui = true
+
+[color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow bold
+    remote = green bold
+    plain = red bold
+
+[color "status"]
+    added = yellow
+    changed = green bold
+    untracked = blue bold
+
+[http]
+    sslVerify = false
+
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to surpress warning message
-        default = simple
+    # See `git help config` (search for push.default)
+    # for more information on different options of the below setting.
+    #
+    # Setting to git 2.0 default to surpress warning message
+    default = simple
