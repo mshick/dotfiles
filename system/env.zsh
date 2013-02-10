@@ -1,3 +1,6 @@
+# prefer UTF-8
+export LC_CTYPE="en_US.UTF-8"
+
 # notify of bg job completion immediately
 set -o notify
 
