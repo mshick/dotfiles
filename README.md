@@ -24,6 +24,8 @@ this script in `bin/`.
 `.localrc` sets some personal environment variables, and holds stuff you'd 
 prefer not to see in a public repository. See the example: `zsh/localrc.example`.
 
+You will need to rename and place in your user dir like so:
+`~/.localrc`
 
 
 
