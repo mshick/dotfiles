@@ -2,12 +2,9 @@
 # node.js in your PATH
 # ----------------------------------------------------------------------
 
-for dir (
-  /usr/local/lib/node
-  /usr/local/lib/node_modules
-)
-if [[ -d $dir ]];
-  then export NODE_PATH=$dir:$NODE_PATH;
+node=/usr/local/lib/node
+if [[ -d $node ]];
+  then export NODE_PATH=$node;
 fi
 
 # NPM binaries
