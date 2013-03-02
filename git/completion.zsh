@@ -3,7 +3,7 @@
 # tosses it, at least).
 completion=/usr/local/share/zsh/site-functions/_git
 
-if test -f $completion
+if [[ -f $completion ]];
 then
-  zstyle ':completion:*:*:git:*' source $completion
+  export FPATH="$completion:$FPATH"
 fi
