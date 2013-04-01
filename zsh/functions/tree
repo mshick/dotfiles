@@ -1,0 +1,11 @@
+# Thanks: http://justinlilly.com/dotfiles/zsh.html
+
+# Simple tree with find and sed.
+
+if [[ -n $@ ]] ; then
+  dir=$@
+else
+  dir=$PWD
+fi
+
+find $dir -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'

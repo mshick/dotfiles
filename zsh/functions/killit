@@ -1,0 +1,9 @@
+# Thanks: http://justinlilly.com/dotfiles/zsh.html
+
+# Kills any process that matches a regexp passed to it
+
+if [[ -n $1 ]] ; then
+  ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
+else
+  echo "usage: killit [expression]"
+fi
