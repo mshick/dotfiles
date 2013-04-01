@@ -18,3 +18,7 @@ alias hi='history | tail -20'
 alias redisstart='launchctl start ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
 alias redisstop='launchctl stop ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
 alias redisclear='redis-cli del solrQueryCache'
+alias redisflush='redis-cli flushall'
+
+# external IP
+alias whatismyip='curl http://ifconfig.me/ip'
