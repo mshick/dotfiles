@@ -1,0 +1,3 @@
+# external IP
+echo -n "Current External IP: "
+curl http://ifconfig.me/ip
