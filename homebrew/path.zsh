@@ -3,7 +3,14 @@
 # ----------------------------------------------------------------------
 
 # prefer user homebrew directory if installed
-[[ -d ~/.homebrew ]] && homebrew=~/.homebrew || homebrew=/usr/local
+if [[ -d ~/.homebrew ]];
+  then
+    homebrew=~/.homebrew
+  else
+    homebrew=/usr/local
+fi
+
+export HOMEBREW_PATH=$homebrew
 
 # PATH
 for dir (

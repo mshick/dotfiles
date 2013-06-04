@@ -1,7 +1,7 @@
 # History for a specific command
 
-if [ -z "$*" ] ;
-  then history 1;
+if [ -z "$*" ] ; then
+  history 1
 else
-  history 1 | egrep "$@";
-fi;
+  history 1 | egrep "$@"
+fi
