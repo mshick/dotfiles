@@ -50,6 +50,10 @@ function update_current_git_vars() {
   GIT_CLEAN=$__CURRENT_GIT_STATUS[7]
 }
 
+# File completion gets very slow without this
+__git_files () {
+    _wanted files expl 'local files' _files
+}
 
 git_super_status() {
   precmd_update_git_vars
