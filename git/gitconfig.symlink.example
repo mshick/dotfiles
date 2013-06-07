@@ -32,11 +32,12 @@
     s            = status -sb -uno --ignore-submodules=untracked
     st           = status
     sa           = status -sb --ignore-submodules=untracked
-    co = checkout
-    promote = !$ZSH/bin/git-promote
-    wtf     = !$ZSH/bin/git-wtf
+    co           = checkout
+    promote      = !$ZSH/bin/git-promote
+    wtf          = !$ZSH/bin/git-wtf
     rank-contributers = !$ZSH/bin/git-rank-contributers
-    count   = !git shortlog -sn
+    count        = !git shortlog -sn
+    lg           = log --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [core]
     excludesfile = ~/.gitignore
