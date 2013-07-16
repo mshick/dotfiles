@@ -13,9 +13,3 @@ fi
 alias du1='du -h --max-depth=1'
 alias fn='find . -name'
 alias hi='history | tail -20'
-
-# redis for txjp
-alias redisstart='launchctl start ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
-alias redisstop='launchctl stop ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
-alias redisclear='redis-cli del solrQueryCache'
-alias redisflush='redis-cli flushall'
