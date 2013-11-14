@@ -87,16 +87,16 @@ git_super_status() {
 }
 
 # Default values for the appearance of the prompt. Configure at will.
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[magenta]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[magenta]%})"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$fg_bold[magenta]%}|"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[magenta]%}■ "
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[magenta]%}"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$fg_bold[magenta]%} "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[yellow]%}●"
-ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[red]%}✖"
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg_bold[green]%}✚"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[red]%}x"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg_bold[green]%}+"
 ZSH_THEME_GIT_PROMPT_REMOTE=""
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[blue]%}…"
-ZSH_THEME_GIT_PROMPT_SUFFIX_CLEAN="%{$fg_bold[grey]%})"
-ZSH_THEME_GIT_PROMPT_PREFIX_CLEAN="%{$fg_bold[grey]%}("
+ZSH_THEME_GIT_PROMPT_PREFIX_CLEAN="%{$fg_bold[grey]%}■ "
+ZSH_THEME_GIT_PROMPT_SUFFIX_CLEAN="%{$fg_bold[grey]%}"
 ZSH_THEME_GIT_PROMPT_BRANCH_CLEAN="%{$fg_bold[grey]%}"
 
