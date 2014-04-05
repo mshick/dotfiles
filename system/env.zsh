@@ -21,3 +21,6 @@ if [ "$(ulimit -n)" != "unlimited" ] ; then
 fi
 
 export EDITOR='subl'
+
+# turn off special handling of ._* files in tar, etc.
+export COPYFILE_DISABLE=true
