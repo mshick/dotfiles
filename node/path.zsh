@@ -8,7 +8,7 @@ if [[ -d $node ]];
 fi
 
 # NPM binaries
-npm=/usr/local/share/npm
+npm=/usr/local/lib/node_modules/npm
 if [[ -d $npm ]];
   then export PATH=$npm/bin:$PATH;
 fi

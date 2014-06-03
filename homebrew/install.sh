@@ -14,6 +14,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark zsh-syntax-highlighting
+brew install grc coreutils spark zsh-syntax-highlighting node
 
 exit 0
