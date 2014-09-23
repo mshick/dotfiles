@@ -8,8 +8,3 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
-
-# disk usage with human sizes and minimal depth
-alias du1='du -h --max-depth=1'
-alias fn='find . -name'
-alias hi='history | tail -20'
