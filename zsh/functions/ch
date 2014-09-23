@@ -1,7 +1,0 @@
-# History for a specific command
-
-if [ -z "$*" ] ; then
-  history 1
-else
-  history 1 | egrep "$@"
-fi

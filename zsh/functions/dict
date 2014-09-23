@@ -1,6 +1,0 @@
-
-if [[ -n $1 ]] ; then
-  grep "$@" /usr/share/dict/words
-else
-  echo "usage: dict [term]"
-fi

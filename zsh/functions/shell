@@ -1,3 +1,0 @@
-# Your current shell
-
-ps | grep `echo $$` | awk '{ print $4 }'
