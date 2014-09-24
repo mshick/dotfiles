@@ -4,11 +4,8 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
-# default location of your pubkey
-export PUBKEY=~/.ssh/id_dsa.pub
-
-# use .localrc for SUPER SECRET CRAP and LOCAL
-# ENV that you don't want in your public, versioned repo.
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc

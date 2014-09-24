@@ -3,7 +3,8 @@
 # Sourced from brew installed code
 # ----------------------------------------------------------------------
 
-if [[ -d $HOMEBREW_PATH/etc/profile.d ]]
-  then
-    source $HOMEBREW_PATH/etc/profile.d/z.sh
+z_path="$(brew --prefix)/etc/profile.d"
+
+if [[ -d $z_path ]]; then
+    source "${z_path}/z.sh"
 fi

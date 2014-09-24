@@ -7,16 +7,3 @@ PROJECTS=~/Code
 # Pubkey path: default ~/.ssh/id_dsa.pub
 # ----------------------------------------------------------------------
 PUBKEY=~/.ssh/id_dsa.pub
-
-# ----------------------------------------------------------------------
-# Local environment vars require for FC
-# ----------------------------------------------------------------------
-export FC_REPO=$PROJECTS/fastcompany # defaults to $PROJECTS/fastcompany
-
-export EC2_PRIVATE_KEY=~/.ssh/fake.pem
-export EC2_CERT=~/.ssh/fake.pem
-export AWS_CREDENTIAL_FILE=~/.fake-cred
-
-# Proxy host kept local for security
-export FCAWS_PROXY_HOST=fake.domain
-export FCAWS_PROXY_HOST_REGION=fake-region
