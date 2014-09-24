@@ -28,8 +28,8 @@
         remote = green bold
         plain = red bold
 [color "status"]
-        added = yellow
-        changed = green bold
+        added = yellow bold
+        changed = cyan bold
         untracked = blue bold
 [core]
         excludesfile = ~/.gitignore
