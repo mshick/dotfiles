@@ -1,0 +1,34 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Alignment",
+		"AngularJS",
+		"Better CoffeeScript",
+		"Better Completion",
+		"BracketHighlighter",
+		"CoffeeComplete Plus (Autocompletion)",
+		"FileDiffs",
+		"Git",
+		"Handlebars",
+		"JavaScript & NodeJS Snippets",
+		"JsFormat",
+		"Lazy Backbone.js",
+		"LESS",
+		"Package Control",
+		"Sass",
+		"SassBeautify",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-coffee",
+		"SublimeOnSaveBuild",
+		"SyncedSideBar",
+		"Theme - Glacier",
+		"Theme - itg.flat",
+		"Underscorejs snippets"
+	],
+	"repositories":
+	[
+		"https://github.com/colinta/SublimeFileDiffs/tree/st3"
+	]
+}
