@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark zsh-syntax-highlighting node z
+brew install grc coreutils spark zsh-syntax-highlighting node z zsh-history-substring-search
 
 exit 0
