@@ -11,6 +11,16 @@
                 "@disable": false,
                 "args": [],
                 "excludes": []
+            },
+            "jshint": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "jsxhint": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
             }
         },
         "mark_style": "squiggly underline",
