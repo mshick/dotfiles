@@ -3,32 +3,30 @@
 	"installed_packages":
 	[
 		"Alignment",
-		"Better CoffeeScript",
 		"BracketHighlighter",
-		"CoffeeComplete Plus (Autocompletion)",
 		"FileDiffs",
 		"Git",
 		"Handlebars",
 		"HTML-CSS-JS Prettify",
 		"JavaScript & NodeJS Snippets",
-		"Lazy Backbone.js",
+		"JavaScriptNext - ES6 Syntax",
 		"LESS",
 		"Nunjucks Syntax",
 		"Package Control",
-		"ReactJS",
+		"Predawn",
 		"Sass",
 		"SideBarEnhancements",
+		"sublime-react",
 		"SublimeLinter",
-		"SublimeLinter-coffee",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jsxhint",
-		"SublimeOnSaveBuild",
-		"Theme - Glacier",
-		"Theme - itg.flat",
-		"Underscorejs snippets"
+		"Theme - Brogrammer",
+		"Theme - Glacier"
 	],
 	"repositories":
 	[
-		"https://github.com/colinta/SublimeFileDiffs/tree/st3"
+		"https://github.com/colinta/SublimeFileDiffs/tree/st3",
+		"https://github.com/zertosh/sublime-react",
+		"https://github.com/zertosh/SublimeLinter-jsxhint.git"
 	]
 }
