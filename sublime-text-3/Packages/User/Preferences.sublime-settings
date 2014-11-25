@@ -51,6 +51,7 @@
 	[
 		"Vintage"
 	],
+	"index_files": false,
 	"rulers":
 	[
 		80
@@ -62,6 +63,5 @@
 	"trim_automatic_white_space": true,
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true,
-	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
-	"index_files": false
+	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?"
 }
