@@ -1,14 +1,24 @@
 {
 	"auto_upgrade_last_run": null,
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"Alignment",
 		"BracketHighlighter",
+		"EditorConfig",
 		"FileDiffs",
-		"Git",
+		"GitGutter",
 		"Handlebars",
 		"HTML-CSS-JS Prettify",
 		"JavaScript & NodeJS Snippets",
+		"JavaScript Completions",
 		"JavaScriptNext - ES6 Syntax",
 		"LESS",
 		"Nunjucks Syntax",
@@ -17,6 +27,7 @@
 		"Sass",
 		"SideBarEnhancements",
 		"sublime-react",
+		"SublimeGit",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jsxhint",
