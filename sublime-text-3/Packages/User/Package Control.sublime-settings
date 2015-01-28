@@ -10,29 +10,30 @@
 	],
 	"installed_packages":
 	[
+		"6to5",
 		"Alignment",
 		"BracketHighlighter",
 		"EditorConfig",
-		"FileDiffs",
 		"GitGutter",
 		"Handlebars",
 		"HTML-CSS-JS Prettify",
+		"Jade",
 		"JavaScript & NodeJS Snippets",
 		"JavaScript Completions",
-		"JavaScriptNext - ES6 Syntax",
 		"LESS",
 		"Nunjucks Syntax",
 		"Package Control",
 		"Predawn",
 		"Sass",
 		"SideBarEnhancements",
-		"sublime-react",
+		"Stylus",
 		"SublimeGit",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jsxhint",
 		"Theme - Brogrammer",
-		"Theme - Glacier"
+		"Theme - Glacier",
+		"WhoCalled Function Finder"
 	],
 	"repositories":
 	[

@@ -13,7 +13,7 @@ else
 fi
 
 # Download the dmg, mount and install
-if ! [[ -e '/Applications/Sublime Text.app' ]]
+if ! [[ -e "/Applications/Sublime Text.app" ]]
 then
     curl -o ~/st3.dmg $URL
     mountpoint="/Volumes/Sublime Text"
@@ -34,8 +34,15 @@ then
         mkdir $st3
     fi
 
-    ln -s "${ZSH}/sublime-text-3/Installed Packages" "${st3}/Installed Packages"
-    ln -s "${ZSH}/sublime-text-3/Packages" "${st3}/Packages"
+    if ! [[ -e "${st3}/Installed Packages" ]]
+    then
+        ln -s "${ZSH}/sublime-text-3/Installed Packages" "${st3}/Installed Packages"
+    fi
+
+    if ! [[ -e "${st3}/Packages" ]]
+    then
+        ln -s "${ZSH}/sublime-text-3/Packages" "${st3}/Packages"
+    fi
 
     echo ""
     echo "Sublime Text 3 installed successfully!"
