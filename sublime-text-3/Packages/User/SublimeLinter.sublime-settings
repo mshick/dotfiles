@@ -8,7 +8,7 @@
         "lint_mode": "background",
         "linters": {
             "jshint": {
-                "@disable": false,
+                "@disable": true,
                 "args": [],
                 "excludes": []
             },
@@ -39,7 +39,7 @@
             "html (django)": "html",
             "html (rails)": "html",
             "html 5": "html",
-            "javascript 6to5": "javascriptnext",
+            "javascript 6to5": "javascript 6to5",
             "php": "html",
             "python django": "python"
         },
