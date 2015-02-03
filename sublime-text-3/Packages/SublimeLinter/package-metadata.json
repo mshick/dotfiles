@@ -1,1 +1,1 @@
-{"version": "3.4.29", "sublime_text": ">=3000", "platforms": ["*"], "description": "Interactive code linting framework for Sublime Text 3", "url": "http://sublimelinter.com", "dependencies": []}
+{"sublime_text": ">=3000", "description": "Interactive code linting framework for Sublime Text 3", "platforms": ["*"], "version": "3.4.30", "url": "http://sublimelinter.com", "dependencies": []}

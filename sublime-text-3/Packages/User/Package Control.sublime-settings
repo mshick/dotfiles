@@ -15,7 +15,6 @@
 		"BracketHighlighter",
 		"EditorConfig",
 		"GitGutter",
-		"Handlebars",
 		"HTML-CSS-JS Prettify",
 		"Jade",
 		"JavaScript & NodeJS Snippets",
@@ -24,15 +23,12 @@
 		"Nunjucks Syntax",
 		"Package Control",
 		"Predawn",
-		"Sass",
 		"SideBarEnhancements",
 		"Stylus",
 		"SublimeGit",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
 		"SublimeLinter-jsxhint",
-		"Theme - Brogrammer",
-		"Theme - Glacier",
 		"WhoCalled Function Finder"
 	],
 	"repositories":

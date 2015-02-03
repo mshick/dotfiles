@@ -2,7 +2,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 1,
 	"caret_style": "phase",
-	"color_scheme": "Packages/User/predawn (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/predawn (SL).tmTheme",
 	"default_line_ending": "unix",
 	"detect_indentation": true,
 	"draw_white_space": "none",
@@ -62,6 +62,7 @@
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
 	"trim_trailing_white_space_on_save": true,
+	"update_check": false,
 	"use_tab_stops": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?"
 }
