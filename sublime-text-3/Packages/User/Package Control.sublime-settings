@@ -3,15 +3,11 @@
 	"in_process_packages":
 	[
 	],
-	"installed_dependencies":
-	[
-		"0_package_control_loader",
-		"bz2"
-	],
 	"installed_packages":
 	[
-		"6to5",
 		"Alignment",
+		"Babel",
+		"Better CoffeeScript",
 		"BracketHighlighter",
 		"EditorConfig",
 		"GitGutter",
@@ -27,6 +23,7 @@
 		"Stylus",
 		"SublimeGit",
 		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-jsxhint",
 		"WhoCalled Function Finder"
 	],

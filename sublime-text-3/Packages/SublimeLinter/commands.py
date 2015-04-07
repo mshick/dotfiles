@@ -142,16 +142,16 @@ class GotoErrorCommand(sublime_plugin.TextCommand):
         if direction == 'next':
             for region in regions:
                 if (
-                    (point == region.begin() and empty_selection and not region.empty())
-                    or (point < region.begin())
+                    (point == region.begin() and empty_selection and not region.empty()) or
+                    (point < region.begin())
                 ):
                     region_to_select = region
                     break
         else:
             for region in reversed(regions):
                 if (
-                    (point == region.end() and empty_selection and not region.empty())
-                    or (point > region.end())
+                    (point == region.end() and empty_selection and not region.empty()) or
+                    (point > region.end())
                 ):
                     region_to_select = region
                     break
@@ -838,7 +838,7 @@ class SublimelinterCreateLinterPluginCommand(sublime_plugin.WindowCommand):
             '__class__': self.camel_case(name),
             '__superclass__': info.get('superclass', 'Linter'),
             '__cmd__': '{}@python'.format(name) if language == 'python' else name,
-            '__extra_attributes__': extra_attributes,
+            '# __extra_attributes__': extra_attributes,
             '__platform__': platform,
             '__install__': info['installer'].format(name),
             '__extra_install_steps__': extra_steps

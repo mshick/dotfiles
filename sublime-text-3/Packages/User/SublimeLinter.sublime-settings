@@ -7,13 +7,18 @@
         "gutter_theme_excludes": [],
         "lint_mode": "background",
         "linters": {
+            "eslint": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
             "jshint": {
                 "@disable": true,
                 "args": [],
                 "excludes": []
             },
             "jsxhint": {
-                "@disable": false,
+                "@disable": true,
                 "args": [],
                 "excludes": []
             }
@@ -39,7 +44,6 @@
             "html (django)": "html",
             "html (rails)": "html",
             "html 5": "html",
-            "javascript 6to5": "javascript 6to5",
             "php": "html",
             "python django": "python"
         },
