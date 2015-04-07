@@ -8,7 +8,7 @@
 # fi
 
 nvm_dir="$(brew --prefix)/var/nvm"
-if [[ -d $node_path ]]; then
+if [[ -d $nvm_dir ]]; then
     export NVM_DIR=$nvm_dir
     source $(brew --prefix nvm)/nvm.sh
 fi

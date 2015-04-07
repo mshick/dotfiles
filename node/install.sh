@@ -2,13 +2,16 @@
 
 if test ! $(which node)
 then
-    echo "  Installing nvm & io.js for you."
+    echo "  Installing io.js & node using nvm for you. [io.js is default]"
     brew install nvm > /tmp/nvm-install.log
 
     export NVM_DIR=$nvm_dir
     source $(brew --prefix nvm)/nvm.sh
 
+    nvm install node > /tmp/node-install.log
     nvm install iojs > /tmp/iojs-install.log
+    nvm use iojs
+    nvm alias default iojs
 fi
 
 npm="$(brew --prefix)/lib/node_modules/npm"
