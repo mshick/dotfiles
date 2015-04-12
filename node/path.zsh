@@ -14,7 +14,7 @@ if [[ -d $nvm_dir ]]; then
 fi
 
 # NPM binaries
-npm_path="$(brew --prefix)/lib/node_modules/npm"
-if [[ -d $npm ]]; then
-    export PATH=$npm_path/bin:$PATH
-fi
+# npm_path="$(brew --prefix)/lib/node_modules/npm"
+# if [[ -d $npm ]]; then
+#     export PATH=$npm_path/bin:$PATH
+# fi

@@ -2,19 +2,15 @@
 
 # Sublime Text 3 install with Package Control
 
-# Run this script with:
-# $ curl -L git.io/sublimetext | sh
-
 # Detect the architecture
-if [ "$(uname -s)" == "Darwin" ]; then
-    URL="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg"
-else
+if [ ! "$(uname -s)" == "Darwin" ]
+then
     exit;
 fi
 
-# Download the dmg, mount and install
-if ! [[ -e "/Applications/Sublime Text.app" ]]
-then
+install_sublime () {
+    # Run this script with:
+    # $ curl -L git.io/sublimetext | sh
     curl -o ~/st3.dmg $URL
     mountpoint="/Volumes/Sublime Text"
     IFS="
@@ -27,6 +23,13 @@ then
 
     hdiutil detach $mountpoint
     rm ~/st3.dmg
+}
+
+# Download the dmg, mount and install
+if ! [[ -e "/Applications/Sublime Text.app" ]]
+then
+    # install_sublime
+    brew cask install sublime-text3
 
     # Symlink config
     st3=~/Library/'Application Support'/'Sublime Text 3'

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ ! "$(uname -s)" == "Darwin" ]
+then
+    exit;
+fi
+
 if test ! $(which node)
 then
     echo "  Installing io.js & node using nvm for you. [io.js is default]"

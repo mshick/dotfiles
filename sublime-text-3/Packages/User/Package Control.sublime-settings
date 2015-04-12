@@ -24,7 +24,6 @@
 		"SublimeGit",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
-		"SublimeLinter-jsxhint",
 		"WhoCalled Function Finder"
 	],
 	"repositories":
