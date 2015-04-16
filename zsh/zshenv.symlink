@@ -1,0 +1,12 @@
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
+
+# all of our zshenv files
+typeset -U config_files
+config_files=($ZSH/**/*.zshenv)
+
+# load the zshenv files
+for file in ${(M)config_files:#*/path.zshenv}
+do
+  source $file
+done
