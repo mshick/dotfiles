@@ -23,6 +23,7 @@
 		"SublimeGit",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-json",
 		"WhoCalled Function Finder"
 	],
 	"repositories":

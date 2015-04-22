@@ -7,14 +7,16 @@
 #     export NODE_PATH=$node_path
 # fi
 
+# NPM binaries
+# npm_path="$(brew --prefix)/lib/node_modules/npm"
+# if [[ -d $npm ]]; then
+#     export PATH=$npm_path/bin:$PATH
+# fi
+
+# Using NVM to support iojs as well. Sucks.
 nvm_dir="$(brew --prefix)/var/nvm"
 if [[ -d $nvm_dir ]]; then
     export NVM_DIR=$nvm_dir
     source $(brew --prefix nvm)/nvm.sh
 fi
 
-# NPM binaries
-# npm_path="$(brew --prefix)/lib/node_modules/npm"
-# if [[ -d $npm ]]; then
-#     export PATH=$npm_path/bin:$PATH
-# fi

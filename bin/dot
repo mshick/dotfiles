@@ -10,7 +10,10 @@ export ZSH=$HOME/.dotfiles
 $ZSH/osx/set-defaults.sh
 
 # Upgrade homebrew
-brew update
-
-# Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
+if test $(which brew)
+then
+    brew update && brew upgrade
+else
+    # Install homebrew packages
+    $ZSH/homebrew/install.sh 2>&1
+fi
