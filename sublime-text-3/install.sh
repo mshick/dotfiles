@@ -43,11 +43,15 @@ link_config() {
     if [[ -e "${ST3}/Installed Packages" ]]
     then
         ln -s "${ZSH}/sublime-text-3/Installed Packages" "${ST3}/Installed Packages"
+    else
+        echo "Installed Packages already exists... skipping"
     fi
 
-    if [[ -e "${ST3}/Installed Packages" ]]
+    if [[ -e "${ST3}/Packages" ]]
     then
         ln -s "${ZSH}/sublime-text-3/Packages" "${ST3}/Packages"
+    else
+        echo "Packages already exists... skipping"
     fi
 }
 
@@ -58,6 +62,8 @@ then
     # install_sublime
     brew cask install sublime-text3 --force
 
+    success "Sublime Text installed"
+
     # Symlink config
     if [[ ! -d $ST3 ]]; then
         mkdir $ST3
@@ -66,6 +72,8 @@ then
     info "Linking Sublime configuration files"
 
     link_config()
+
+    success "Configuration files linked"
 
     echo ""
     echo "Sublime Text 3 installed successfully!"
