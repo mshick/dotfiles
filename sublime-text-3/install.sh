@@ -41,7 +41,7 @@ then
        mv "${st3}/Installed Packages" "${st3}/Installed Packages.bak"
     fi
 
-    if ! [[ -d "${st3}/Packages" ]]
+    if [[ -d "${st3}/Packages" ]]
     then
         mv "${st3}/Packages" "${st3}/Packages.bak"
     fi
