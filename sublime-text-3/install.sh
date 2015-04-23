@@ -8,6 +8,10 @@ then
     exit;
 fi
 
+set -e
+
+echo ''
+
 source "${ZSH}/util/interactive"
 
 ST3=~/Library/'Application Support'/'Sublime Text 3'
@@ -29,31 +33,32 @@ ST3=~/Library/'Application Support'/'Sublime Text 3'
 #     rm ~/st3.dmg
 # }
 
-link_config() {
-    if [[ -d "${ST3}/Installed Packages" ]]
-    then
-       mv "${ST3}/Installed Packages" "${ST3}/Installed Packages.bak"
-    fi
+# link_config() {
+    # if [[ -d "${ST3}/Installed Packages" ]]
+    # then
+    #    mv "${ST3}/Installed Packages" "${ST3}/Installed Packages.bak"
+    # fi
 
-    if [[ -d "${ST3}/Packages" ]]
-    then
-        mv "${ST3}/Packages" "${ST3}/Packages.bak"
-    fi
+    # if [[ -d "${ST3}/Packages" ]]
+    # then
+    #     mv "${ST3}/Packages" "${ST3}/Packages.bak"
+    # fi
 
-    if [[ -e "${ST3}/Installed Packages" ]]
-    then
-        ln -s "${ZSH}/sublime-text-3/Installed Packages" "${ST3}/Installed Packages"
-    else
-        echo "Installed Packages already exists... skipping"
-    fi
+    # if [[ -e "${ST3}/Installed Packages" ]]
+    # then
+    #     ln -s "${ZSH}/sublime-text-3/Installed Packages" "${ST3}/Installed Packages"
+    # else
+    #     echo "Installed Packages already exists... skipping"
+    # fi
 
-    if [[ -e "${ST3}/Packages" ]]
-    then
-        ln -s "${ZSH}/sublime-text-3/Packages" "${ST3}/Packages"
-    else
-        echo "Packages already exists... skipping"
-    fi
-}
+    # if [[ -e "${ST3}/Packages" ]]
+    # then
+    #     ln -s "${ZSH}/sublime-text-3/Packages" "${ST3}/Packages"
+    #     success "Configuration files linked"
+    # else
+    #     echo "Packages already exists... skipping"
+    # fi
+# }
 
 if ! [[ -e "~/Applications/Sublime Text.app" ]]
 then
@@ -71,7 +76,8 @@ then
 
     info "Linking Sublime configuration files"
 
-    link_config()
+    link_file "${ZSH}/sublime-text-3/Installed Packages" "${ST3}/Installed Packages"
+    link_file "${ZSH}/sublime-text-3/Packages" "${ST3}/Packages"
 
     success "Configuration files linked"
 
