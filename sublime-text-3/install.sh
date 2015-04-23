@@ -25,8 +25,7 @@ install_sublime () {
     rm ~/st3.dmg
 }
 
-# Download the dmg, mount and install
-if ! [[ -e "/Applications/Sublime Text.app" ]]
+if ! [[ -e "~/Applications/Sublime Text.app" ]]
 then
     # install_sublime
     brew cask install sublime-text3 --force
@@ -37,15 +36,18 @@ then
         mkdir $st3
     fi
 
-    if ! [[ -e "${st3}/Installed Packages" ]]
+    if [[ -d "${st3}/Installed Packages" ]]
     then
-        ln -s "${ZSH}/sublime-text-3/Installed Packages" "${st3}/Installed Packages"
+       mv "${st3}/Installed Packages" "${st3}/Installed Packages.bak"
     fi
 
-    if ! [[ -e "${st3}/Packages" ]]
+    if ! [[ -d "${st3}/Packages" ]]
     then
-        ln -s "${ZSH}/sublime-text-3/Packages" "${st3}/Packages"
+        mv "${st3}/Packages" "${st3}/Packages.bak"
     fi
+
+    ln -s "${ZSH}/sublime-text-3/Installed Packages" "${st3}/Installed Packages"
+    ln -s "${ZSH}/sublime-text-3/Packages" "${st3}/Packages"
 
     echo ""
     echo "Sublime Text 3 installed successfully!"
