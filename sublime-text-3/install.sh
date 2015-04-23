@@ -29,7 +29,7 @@ install_sublime () {
 if ! [[ -e "/Applications/Sublime Text.app" ]]
 then
     # install_sublime
-    brew cask install sublime-text3
+    brew cask install sublime-text3 --force
 
     # Symlink config
     st3=~/Library/'Application Support'/'Sublime Text 3'
