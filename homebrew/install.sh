@@ -18,6 +18,8 @@ fi
 if ! [[ $(brew ls --versions brew-cask) ]]
 then
     brew install caskroom/cask/brew-cask
+    brew tap gapple/services
+    brew tap mshick/personal
     brew tap caskroom/versions
     brew tap caskroom/fonts
 fi
