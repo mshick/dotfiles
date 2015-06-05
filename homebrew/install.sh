@@ -14,14 +14,15 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 fi
 
+brew tap gapple/services
+brew tap mshick/personal
+brew tap caskroom/versions
+brew tap caskroom/fonts
+
 # Install casks
 if ! [[ $(brew ls --versions brew-cask) ]]
 then
     brew install caskroom/cask/brew-cask
-    brew tap gapple/services
-    brew tap mshick/personal
-    brew tap caskroom/versions
-    brew tap caskroom/fonts
 fi
 
 # Install core homebrew packages
