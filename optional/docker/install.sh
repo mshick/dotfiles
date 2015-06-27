@@ -5,6 +5,8 @@ then
     exit;
 fi
 
+brew cask ls virtualbox > /dev/null || brew cask install virtualbox
+
 if test ! $(which docker) && ! [[ $(brew ls --versions docker) ]]
 then
   echo "  Installing docker for you."

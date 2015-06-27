@@ -14,4 +14,3 @@ brew cask ls unrarx > /dev/null || brew cask install unrarx
 brew cask ls firefox > /dev/null || brew cask install firefox
 brew cask ls xld > /dev/null || brew cask install xld
 brew cask ls vlc > /dev/null || brew cask install vlc
-brew cask ls virtualbox > /dev/null || brew cask install virtualbox
