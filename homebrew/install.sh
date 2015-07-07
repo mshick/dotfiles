@@ -19,29 +19,10 @@ brew tap mshick/personal
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
-# Install casks
+# Install cask
 if ! [[ $(brew ls --versions brew-cask) ]]
 then
     brew install caskroom/cask/brew-cask
-fi
-
-# Install core homebrew packages
-if test ! $(which grc) && ! [[ $(brew ls --versions grc) ]]
-then
-    echo "  Installing grc for you."
-    brew install grc > /tmp/grc-install.log
-fi
-
-if ! [[ $(brew ls --versions coreutils) ]]
-then
-    echo "  Installing coreutils for you."
-    brew install coreutils > /tmp/coreutils-install.log
-fi
-
-if ! [[ $(brew ls --versions spark) ]]
-then
-    echo "  Installing spark for you."
-    brew install spark > /tmp/spark-install.log
 fi
 
 exit 0

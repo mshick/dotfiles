@@ -12,4 +12,13 @@ then
     brew install coreutils > /tmp/coreutils-install.log
 fi
 
+if ! [[ $(brew ls --versions findutils) ]]
+then
+    echo "  Installing findutils for you."
+    brew install findutils > /tmp/findutils-install.log
+fi
+
+echo "  Installing GNU utils for you."
+brew install gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt > /tmp/gnuutils-install.log
+
 exit 0
