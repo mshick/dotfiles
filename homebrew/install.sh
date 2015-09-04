@@ -14,7 +14,7 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 fi
 
-brew tap gapple/services
+brew tap homebrew/services
 brew tap mshick/personal
 brew tap caskroom/versions
 brew tap caskroom/fonts

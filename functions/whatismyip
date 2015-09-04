@@ -1,3 +1,2 @@
 # external IP
-echo -n "Current External IP: "
-curl http://ifconfig.me/ip
+echo -n "Current External IP: $(dig +short myip.opendns.com @resolver1.opendns.com)"
