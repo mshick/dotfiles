@@ -2,6 +2,8 @@
 #
 # bootstrap installs things.
 
+export PATH=/usr/local/bin:$PATH
+
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd)
 

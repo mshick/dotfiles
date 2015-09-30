@@ -7,9 +7,8 @@ fi
 
 if test ! $(which node)
 then
-    echo "  Installing io.js for you."
-    brew install iojs > /tmp/iojs-install.log
-    brew link iojs --force
+    echo "  Installing node.js for you."
+    brew install node > /tmp/node-install.log
 fi
 
 npm="$(brew --prefix)/lib/node_modules/npm"
