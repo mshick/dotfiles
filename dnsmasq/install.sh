@@ -5,7 +5,7 @@ then
     exit;
 fi
 
-if test ! $(which dnsmasq) && ! [[ $(brew ls --versions dnsmasq) ]]
+if ! [ -x "$(command -v dnsmasq)" ] && ! [[ $(brew ls --versions dnsmasq) ]]
 then
   echo "  Installing dnsmasq and local .dev for you."
   brew install dnsmasq > /tmp/dnsmasq-install.log
