@@ -5,10 +5,16 @@ then
     exit;
 fi
 
-if test ! $(which node)
+if ! [ -x "$(command -v node)" ]
 then
     echo "  Installing node.js for you."
-    brew install node > /tmp/node-install.log
+    brew install node --without-npm > /tmp/node-install.log
+fi
+
+if ! [ -x "$(command -v npm)" ]
+then
+    echo "  Installing npm for you."
+    curl -L https://www.npmjs.com/install.sh | sh
 fi
 
 npm="$(brew --prefix)/lib/node_modules/npm"

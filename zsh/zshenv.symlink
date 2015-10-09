@@ -1,3 +1,4 @@
+# user binaries
 export PATH=/usr/local/bin:$PATH
 
 # shortcut to this dotfiles path is $ZSH
