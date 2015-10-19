@@ -11,6 +11,12 @@ then
     brew install node --without-npm > /tmp/node-install.log
 fi
 
+if ! [ -f node/npmrc.symlink ]
+then
+  sed -e "s|HOME|$HOME|g" node/npmrc.symlink.example > node/npmrc.symlink
+  ln -s "node/npmrc.symlink" "$HOME/.npmrc"
+fi
+
 if ! [ -x "$(command -v npm)" ]
 then
     echo "  Installing npm for you."
