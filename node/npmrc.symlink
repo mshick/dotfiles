@@ -1,1 +1,2 @@
-prefix=~/.node
+prefix=/Users/mshick/.node
+//registry.npmjs.org/:_authToken=08804b88-83f6-4d6b-bbfe-15914d03983b
