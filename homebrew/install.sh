@@ -19,10 +19,4 @@ brew tap mshick/personal
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
-# Install cask
-if ! [[ $(brew ls --versions brew-cask) ]]
-then
-    brew install caskroom/cask/brew-cask
-fi
-
 exit 0
