@@ -2,16 +2,9 @@
 # node.js in your PATH
 # ----------------------------------------------------------------------
 
-# node binary
-node_path="$(brew --prefix)/lib/node"
-if [[ -d $node_path ]]
+# nvm env
+if [[ $(brew ls --versions nvm) ]]
 then
-    export NODE_PATH=$node_path
-fi
-
-# npm binaries
-npm_path="$HOME/.node/bin"
-if [[ -d $npm_path ]]
-then
-    export PATH=$npm_path:$PATH
+    export NVM_DIR="$HOME/.nvm"
+    . "$(brew --prefix nvm)/nvm.sh"
 fi
