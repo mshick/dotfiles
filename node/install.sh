@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
 
-if [ ! "$(uname -s)" == "Darwin" ]
-then
-    exit;
-fi
-
 if ! [ -x "$(command -v node)" ]
 then
     echo "  Installing node.js with nvm for you."
     mkdir "$HOME/.nvm"
-    brew install nvm > /tmp/node-install.log
     export NVM_DIR="$HOME/.nvm"
     . "$(brew --prefix nvm)/nvm.sh"
     nvm install node

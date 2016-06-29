@@ -2,8 +2,6 @@
 #
 # Homebrew
 #
-# This runs first, during the bootstrap as part of bin/dot
-#
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 
@@ -11,12 +9,16 @@
 if test ! $(which brew)
 then
   echo "  Installing Homebrew for you."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
-fi
 
-brew tap homebrew/services
-brew tap mshick/personal
-brew tap caskroom/versions
-brew tap caskroom/fonts
+  # Install the correct homebrew for each OS type
+  if test "$(uname)" = "Darwin"
+  then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+  then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  fi
+
+fi
 
 exit 0
