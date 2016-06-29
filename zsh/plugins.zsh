@@ -3,7 +3,7 @@
 # Sourced from brew installed code
 # ----------------------------------------------------------------------
 
-syntax_path="$(brew --prefix)/share/zsh-syntax-highlighting"
+syntax_path="$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting"
 
 if [[ -d $syntax_path ]]; then
     source "${syntax_path}/zsh-syntax-highlighting.zsh"
@@ -16,7 +16,7 @@ fi
 # Sourced from brew installed code
 # ----------------------------------------------------------------------
 
-history_path="$(brew --prefix)/opt/zsh-history-substring-search"
+history_path="$(brew --prefix zsh-history-substring-search)"
 
 if [[ -d $history_path ]]; then
     source "${history_path}/zsh-history-substring-search.zsh"
