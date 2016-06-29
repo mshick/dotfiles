@@ -1,0 +1,10 @@
+payforsuccess:
+  title: "Pay for Success"
+  paths: [
+    "/Users/mshick/Code/payforsuccess.org"
+  ]
+dotfiles:
+  title: "dotfiles"
+  paths: [
+    "/Users/mshick/.dotfiles"
+  ]

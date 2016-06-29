@@ -15,19 +15,21 @@
       "tmp"
       "vendor"
     ]
+    projectHome: "/Users/mshick/Code"
     themes: [
-      "unity-ui"
-      "glacier-syntax"
+      "predawn-ui"
+      "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontFamily: "Menlo"
+    fontFamily: "Source Code Pro"
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
-  "go-plus":
-    goPath: "/Users/holman/Code/go"
-  "release-notes":
-    viewedVersion: "0.89.0"
+  "exception-reporting":
+    userId: "d2363a76-9c89-c8f3-f57a-0db45ee14e73"
+  "git-control":
+    showGitFlowButton: false
+  "predawn-ui": {}
   "spell-check":
     grammars: [
       "text.plain"
@@ -35,5 +37,11 @@
       "text.git-commit"
       "text.html.basic"
     ]
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   welcome:
     showOnStartup: false
