@@ -16,6 +16,7 @@ cask 'vlc'
 cask 'font-source-code-pro'
 cask 'sublime-text-dev'
 cask 'rightfont'
+cask 'bittorrent-sync'
 
 brew 'ack'
 brew 'coreutils'

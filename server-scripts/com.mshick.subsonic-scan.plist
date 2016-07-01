@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.mshick.subsonic-scan</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/mshick/.dotfiles/server-scripts/subsonic-scan.sh</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>/Users/mshick/Library/Logs/com.mshick.subsonic-scan/com.mshick.subsonic-scan_err.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/mshick/Library/Logs/com.mshick.subsonic-scan/com.mshick.subsonic-scan.log</string>
+    <key>StartInterval</key>
+    <integer>300</integer>
+</dict>
+</plist>
