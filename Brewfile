@@ -22,7 +22,6 @@ cask 'screenhero'
 cask 'google-play-music-desktop-player'
 cask 'flux'
 cask 'dropbox'
-cask 'ginbox'
 
 brew 'ack'
 brew 'coreutils'

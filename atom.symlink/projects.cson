@@ -8,3 +8,8 @@ dotfiles:
   paths: [
     "/Users/mshick/.dotfiles"
   ]
+alignedenergy:
+  title: "alignedenergy"
+  paths: [
+    "/Users/mshick/Code/alignedenergy"
+  ]

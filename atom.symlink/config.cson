@@ -18,7 +18,7 @@
     projectHome: "/Users/mshick/Code"
     themes: [
       "predawn-ui"
-      "base16-tomorrow-dark-theme"
+      "predawn-twilight"
     ]
   editor:
     fontFamily: "Source Code Pro"
