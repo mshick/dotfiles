@@ -5,7 +5,7 @@ then
     exit;
 fi
 
-if ! [ -x "$(command -v dnsmasq)" ] && ! [[ $(brew ls --versions dnsmasq) ]]
+if ! [ -f $(brew --prefix)/etc/dnsmasq.conf ]
 then
   echo "  Installing local .dev for you."
   mkdir -pv $(brew --prefix)/etc/
