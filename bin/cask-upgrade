@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# https://gist.github.com/atais/9c72e469b1cbec35c7c430ce03de2a6b
 
 (set -x; brew update;)
 (set -x; brew cask update;)
