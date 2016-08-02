@@ -44,5 +44,5 @@
         default = simple
         followTags = true
 
-[branch "*branch-name*"]
+[pull]
         rebase = true

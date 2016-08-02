@@ -1,12 +1,20 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "3ee2c397-bbb5-402b-8c7e-31aedebcc1b0"
+    scss:
+      newline_between_rules: true
   core:
     disabledPackages: [
       "background-tips"
       "exception-reporting"
       "metrics"
+      "tree-view-open-files"
+      "language-javascript-jsx"
     ]
+    excludeVcsIgnoredPaths: false
     followSymlinks: false
-    hideGitIgnoredFiles: true
+    hideGitIgnoredFiles: false
     ignoredNames: [
       ".bundle"
       ".git"
@@ -22,6 +30,7 @@
     ]
   editor:
     fontFamily: "Source Code Pro"
+    fontSize: 18
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
@@ -29,6 +38,12 @@
     userId: "d2363a76-9c89-c8f3-f57a-0db45ee14e73"
   "git-control":
     showGitFlowButton: false
+  linter:
+    inlineTooltipInterval: 300
+    lintOnFlyInterval: 600
+    showErrorPanel: false
+    showErrorTabLine: true
+    statusIconScope: "File"
   "predawn-ui": {}
   "split-diff":
     diffWords: true
@@ -36,5 +51,14 @@
     leftEditorColor: "red"
     rightEditorColor: "green"
     syncHorizontalScroll: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "tree-view-open-files": {}
   welcome:
     showOnStartup: false
+".js.text":
+  whitespace:
+    removeTrailingWhitespace: false
+".jsx.text":
+  whitespace:
+    removeTrailingWhitespace: false
