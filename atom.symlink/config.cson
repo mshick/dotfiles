@@ -5,6 +5,7 @@
     scss:
       newline_between_rules: true
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "background-tips"
       "exception-reporting"
@@ -52,7 +53,7 @@
     rightEditorColor: "green"
     syncHorizontalScroll: true
   "tree-view":
-    hideVcsIgnoredFiles: true
+    hideVcsIgnoredFiles: false
   "tree-view-open-files": {}
   welcome:
     showOnStartup: false
