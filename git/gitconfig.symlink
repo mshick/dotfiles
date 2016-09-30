@@ -4,11 +4,14 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
+        co      = checkout
+        it      = !git init && git commit -m "root" --allow-empty
+        st      = status --short --branch
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        commend = commit --amend --no-edit
 [color]
         ui = true
 [color "diff"]
