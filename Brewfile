@@ -25,6 +25,7 @@ cask 'dropbox'
 cask 'qbittorrent'
 cask 'virtualbox'
 cask 'whatsapp'
+cask 'docker-beta'
 
 brew 'ack'
 brew 'coreutils'
