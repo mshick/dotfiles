@@ -26,6 +26,8 @@ cask 'qbittorrent'
 cask 'virtualbox'
 cask 'whatsapp'
 cask 'docker-beta'
+cask 'sketch-beta'
+cask 'sketch-toolbox'
 
 brew 'ack'
 brew 'coreutils'
