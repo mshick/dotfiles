@@ -5,7 +5,6 @@
     scss:
       newline_between_rules: true
   core:
-    automaticallyUpdate: false
     disabledPackages: [
       "background-tips"
       "exception-reporting"
@@ -25,6 +24,7 @@
       "vendor"
     ]
     projectHome: "/Users/mshick/Code"
+    telemetryConsent: "limited"
     themes: [
       "predawn-ui"
       "predawn-twilight"
@@ -39,6 +39,9 @@
     userId: "d2363a76-9c89-c8f3-f57a-0db45ee14e73"
   "git-control":
     showGitFlowButton: false
+  "git-plus":
+    general:
+      _analyticsUserId: "d3a9f61f-364c-4d7b-b121-1b2ed4d9f8aa"
   linter:
     inlineTooltipInterval: 300
     lintOnFlyInterval: 600
