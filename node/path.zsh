@@ -6,5 +6,5 @@
 if [[ $(brew ls --versions nvm) ]]
 then
     export NVM_DIR="$HOME/.nvm"
-    . "$(brew --prefix nvm)/nvm.sh"
+    [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh" --no-use
 fi
