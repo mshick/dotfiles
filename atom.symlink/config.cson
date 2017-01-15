@@ -5,6 +5,7 @@
     scss:
       newline_between_rules: true
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "background-tips"
       "exception-reporting"
@@ -26,8 +27,8 @@
     projectHome: "/Users/mshick/Code"
     telemetryConsent: "limited"
     themes: [
-      "predawn-ui"
-      "predawn-twilight"
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
     ]
   editor:
     fontFamily: "Source Code Pro"
