@@ -1,15 +1,27 @@
-payforsuccess:
-  title: "Pay for Success"
-  paths: [
-    "/Users/mshick/Code/payforsuccess.org"
-  ]
-dotfiles:
-  title: "dotfiles"
-  paths: [
-    "/Users/mshick/.dotfiles"
-  ]
-alignedenergy:
-  title: "alignedenergy"
-  paths: [
-    "/Users/mshick/Code/alignedenergy"
-  ]
+[
+  {
+    title: "Pay for Success"
+    paths: [
+      "/Users/mshick/Code/payforsuccess.org"
+    ]
+  }
+  {
+    title: "dotfiles"
+    paths: [
+      "/Users/mshick/.dotfiles"
+    ]
+  }
+  {
+    title: "alignedenergy"
+    paths: [
+      "/Users/mshick/Code/alignedenergy"
+    ]
+  }
+  {
+    title: "Parsley Health"
+    group: "work"
+    paths: [
+      "/Users/mshick/Code/parsleyhealth"
+    ]
+  }
+]
