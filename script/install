@@ -6,10 +6,10 @@ set -e
 
 export ZSH=$HOME/.dotfiles
 
-# Install homebrew
+# Install Homebrew
 $ZSH/homebrew/install.sh 2>&1
 
-# Upgrade homebrew
+# Upgrade Homebrew
 echo "› brew update"
 brew update
 
