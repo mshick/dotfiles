@@ -1,4 +1,8 @@
 #!/bin/bash
 # http://www.imore.com/add-space-your-mac-dock
 
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
+if [ "$1" = "right" ] ; then
+  defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock
+else
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
+fi
