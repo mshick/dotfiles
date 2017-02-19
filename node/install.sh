@@ -5,7 +5,7 @@ then
     echo "  Installing node.js with nvm for you."
     export NVM_DIR="$HOME/.nvm"
     . "$(brew --prefix nvm)/nvm.sh"
-    nvm install node
+    nvm install stable
 fi
 
 if test ! $(which spoof)
