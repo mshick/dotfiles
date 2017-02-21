@@ -50,6 +50,7 @@ brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
 brew 'nvm'
+brew 'p7zip'
 brew 'readline'
 brew 'ruby-build'
 brew 'rbenv'
