@@ -32,6 +32,7 @@ cask 'xld'
 cask 'sequel-pro'
 cask 'google-drive'
 cask 'transmission'
+cask 'messenger'
 
 brew 'ack'
 brew 'coreutils'
