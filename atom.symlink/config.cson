@@ -61,6 +61,7 @@
   "tree-view-open-files": {}
   welcome:
     showOnStartup: false
+  whitespace: {}
 ".js.text":
   whitespace:
     removeTrailingWhitespace: false

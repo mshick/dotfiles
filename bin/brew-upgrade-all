@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # https://github.com/derrekyoung/ScriptsAndUtils/blob/master/brew-cask-upgrade.sh
 
