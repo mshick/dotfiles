@@ -32,7 +32,7 @@
     ]
   editor:
     fontFamily: "Source Code Pro"
-    fontSize: 18
+    fontSize: 17
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
@@ -43,12 +43,10 @@
   "git-plus":
     general:
       _analyticsUserId: "d3a9f61f-364c-4d7b-b121-1b2ed4d9f8aa"
-  linter:
-    inlineTooltipInterval: 300
-    lintOnFlyInterval: 600
-    showErrorPanel: false
-    showErrorTabLine: true
-    statusIconScope: "File"
+  linter: {}
+  "linter-eslint":
+    globalNodePath: "/Users/mshick/.nvm/versions/node/v6.10.2"
+  "linter-ui-default": {}
   "predawn-ui": {}
   "split-diff":
     diffWords: true
