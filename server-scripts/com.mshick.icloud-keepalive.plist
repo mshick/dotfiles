@@ -21,9 +21,9 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>~/Library/Logs/com.mshick.icloud-keepalive/keepalive.log</string>
+    <string>/Users/mshick/Library/Logs/com.mshick.icloud-keepalive/keepalive.log</string>
 
     <key>StandardErrorPath</key>
-    <string>~/Library/Logs/com.mshick.icloud-keepalive/keepalive_error.log</string>
+    <string>/Users/mshick/Library/Logs/com.mshick.icloud-keepalive/keepalive_error.log</string>
   </dict>
 </plist>
