@@ -8,7 +8,7 @@ tap 'caskroom/fonts'
 #tap 'mshick/personal'
 
 cask 'xquartz'
-cask 'atom'
+cask 'atom-beta'
 cask 'firefox'
 cask 'google-chrome'
 cask 'handbrake'
