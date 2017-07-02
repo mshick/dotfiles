@@ -4,6 +4,10 @@
       _analyticsUserId: "3ee2c397-bbb5-402b-8c7e-31aedebcc1b0"
     scss:
       newline_between_rules: true
+  "atom-package-deps":
+    ignored: []
+  "build-make":
+    useMake: true
   core:
     automaticallyUpdate: false
     disabledPackages: [
@@ -12,6 +16,15 @@
       "metrics"
       "tree-view-open-files"
       "language-javascript-jsx"
+      "welcome"
+      "link"
+      "language-ruby-on-rails"
+      "language-toml"
+      "language-mustache"
+      "language-less"
+      "language-csharp"
+      "language-clojure"
+      "language-c"
     ]
     excludeVcsIgnoredPaths: false
     followSymlinks: false
@@ -32,7 +45,7 @@
     ]
   editor:
     fontFamily: "Source Code Pro"
-    fontSize: 17
+    fontSize: 19
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
@@ -46,7 +59,8 @@
   linter: {}
   "linter-eslint":
     globalNodePath: "/Users/mshick/.nvm/versions/node/v6.10.2"
-  "linter-ui-default": {}
+  "linter-ui-default":
+    panelHeight: 69
   "predawn-ui": {}
   "split-diff":
     diffWords: true

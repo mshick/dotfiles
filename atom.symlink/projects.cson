@@ -1,27 +1,44 @@
 [
   {
-    title: "Pay for Success"
+    title: "Parsley Health Website"
+    group: "Parsley Health"
     paths: [
-      "/Users/mshick/Code/payforsuccess.org"
+      "/Users/mshick/Code/parsleyhealth/wp-website"
     ]
   }
   {
-    title: "dotfiles"
+    title: "Parsley Health Services"
+    group: "Parsley Health"
+    paths: [
+      "/Users/mshick/Code/parsleyhealth/services"
+    ]
+  }
+  {
+    title: "Parsley Health Portal"
+    group: "Parsley Health"
+    paths: [
+      "/Users/mshick/Code/parsleyhealth/portal"
+    ]
+  }
+  {
+    title: "Parsley Health Eslint Config"
+    group: "Parsley Health"
+    paths: [
+      "/Users/mshick/Code/parsleyhealth/eslint-config-parsley"
+    ]
+  }
+  {
+    title: ".dotfiles"
+    group: "Personal"
     paths: [
       "/Users/mshick/.dotfiles"
     ]
   }
   {
-    title: "alignedenergy"
+    title: "libpiggy"
+    group: "Community"
     paths: [
-      "/Users/mshick/Code/alignedenergy"
-    ]
-  }
-  {
-    title: "Parsley Health"
-    group: "work"
-    paths: [
-      "/Users/mshick/Code/parsleyhealth"
+      "/Users/mshick/Code/libpiggy"
     ]
   }
 ]
