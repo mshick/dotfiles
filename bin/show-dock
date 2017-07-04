@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Show the dock
+
+defaults write com.apple.dock autohide -bool false && killall Dock

@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Toggle the dock
+
+osascript -e 'tell application "System Events" to keystroke "d" using {command down, option down}'
