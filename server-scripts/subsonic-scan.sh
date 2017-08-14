@@ -15,6 +15,5 @@ fi
 if [[ $json == *"\"files\":"* ]] && [[ $json != *"\"files\": []"* ]]
 then
 	echo "[$(date)] Found changed files. Refreshing Subsonic database.";
-	/usr/bin/curl -d "j_username=admin&j_password=admin&submit=Log in" -c /tmp/subsonic-cookie.txt -s http://localhost:4040/j_acegi_security_check > /dev/null
-	/usr/bin/curl -b /tmp/subsonic-cookie.txt -s http://localhost:4040/musicFolderSettings.view?scanNow > /dev/null
+	/usr/bin/curl --silent "http://localhost:4040/rest/startScan?u=admin&p=admin&f=json&c=watchman&v=1.15.0" > /dev/null
 fi
