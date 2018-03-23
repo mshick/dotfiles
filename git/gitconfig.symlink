@@ -30,7 +30,7 @@
         untracked = blue bold
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+	editor = atom --wait
 [apply]
         whitespace = nowarn
 [mergetool]
