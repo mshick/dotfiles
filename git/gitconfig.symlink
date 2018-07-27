@@ -30,13 +30,9 @@
         untracked = blue bold
 [core]
         excludesfile = ~/.gitignore
-	editor = atom --wait
+	    editor = code --wait
 [apply]
         whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
 [help]
         autocorrect = 1
 [push]
@@ -46,8 +42,13 @@
         # Setting to git 2.0 default to surpress warning message
         default = simple
         followTags = true
-
-[pull]
-        rebase = true
 [credential]
-	helper = osxkeychain
+	    helper = osxkeychain
+[merge]
+        tool = vscode
+[mergetool "vscode"]
+        cmd = code --wait $MERGED
+[diff]
+        tool = vscode
+[difftool "vscode"]
+        cmd = code --wait --diff $LOCAL $REMOTE

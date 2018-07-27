@@ -290,7 +290,7 @@ function cask_show_updates_parallel() {
         local c="$1"
         local CASK_INFO=$(brew cask info $c)
         local CASK_NAME=$(echo "$c" | cut -d ":" -f1 | xargs)
-        local NEW_VERSION=$(echo "$CASK_INFO" | grep -e "$CASK_NAME: .*" | cut -d ":" -f2 | sed 's/ *//' )
+        local NEW_VERSION=$(echo "$CASK_INFO" | grep -e "$CASK_NAME: .*" | cut -d ":" -f2 | cut -d " " -f2 | sed 's/ *//' )
         local IS_CURRENT_VERSION_INSTALLED=$(echo $CASK_INFO | grep -q ".*/Caskroom/$CASK_NAME/$NEW_VERSION.*" 2>&1 && echo -e '\033[1;32mtrue\033[0m' || echo -e '\033[1;31mfalse\033[0m')
 
         printf "%-35s | %-20s | %-15s\n" "$CASK_NAME" "${NEW_VERSION:0:20}" "$IS_CURRENT_VERSION_INSTALLED"
@@ -397,14 +397,14 @@ trap "unset_variables; kill_subprocesses >/dev/null 2>&1; exit; kill_main_proces
 # Create directory
 # ------------------
 
-if [[ ! -d /usr/local ]]; then
-    echo "Creating directory..."
-    sudo mkdir /usr/local
-else
-    printf "Setting directory permissions... "
-    sudo chown -R $(whoami) /usr/local > /dev/null 2>&1
-    [[ $? = 0 ]] && success || error
-fi
+# if [[ ! -d /usr/local ]]; then
+#     echo "Creating directory..."
+#     sudo mkdir /usr/local
+# else
+#     printf "Setting directory permissions... "
+#     sudo chown -R $(whoami) /usr/local > /dev/null 2>&1
+#     [[ $? = 0 ]] && success || error
+# fi
 
 # Connection check
 # ----------------
