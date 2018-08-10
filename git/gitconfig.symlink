@@ -52,3 +52,5 @@
         tool = vscode
 [difftool "vscode"]
         cmd = code --wait --diff $LOCAL $REMOTE
+[commit]
+	gpgsign = true
