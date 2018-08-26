@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# http://osxdaily.com/2013/07/16/quick-external-ip-address-command-line/
+
+dig +short myip.opendns.com @resolver1.opendns.com
