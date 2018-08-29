@@ -92,7 +92,7 @@ _zsh_nvm_lazy_load() {
   local cmds
   cmds=()
   for bin in $global_binaries; do
-    [[ "$(which $bin)" = "$bin: aliased to "* ]] || cmds+=($bin)
+    [[ "$(which $bin 2> /dev/null)" = "$bin: aliased to "* ]] || cmds+=($bin)
   done
 
   # Create function for each command
@@ -100,21 +100,24 @@ _zsh_nvm_lazy_load() {
 
     # When called, unset all lazy loaders, load nvm then run current command
     eval "$cmd(){
-      unset -f $cmds
+      unset -f $cmds > /dev/null 2>&1
       _zsh_nvm_load
       $cmd \"\$@\"
     }"
   done
 }
+
 nvm_update() {
   echo 'Deprecated, please use `nvm upgrade`'
 }
 _zsh_nvm_upgrade() {
+
   # Use default upgrade if it's built in
   if [[ -n "$(_zsh_nvm_nvm help | grep 'nvm upgrade')" ]]; then
     _zsh_nvm_nvm upgrade
     return
   fi
+
   # Otherwise use our own
   local installed_version=$(cd "$NVM_DIR" && git describe --tags)
   echo "Installed version is $installed_version"
@@ -129,9 +132,11 @@ _zsh_nvm_upgrade() {
     _zsh_nvm_load
   fi
 }
+
 _zsh_nvm_previous_version() {
   cat "$ZSH_NVM_DIR/previous_version" 2>/dev/null
 }
+
 _zsh_nvm_revert() {
   local previous_version="$(_zsh_nvm_previous_version)"
   if [[ -n "$previous_version" ]]; then
@@ -148,13 +153,17 @@ _zsh_nvm_revert() {
     echo "No previous version found"
   fi
 }
+
 autoload -U add-zsh-hook
 _zsh_nvm_auto_use() {
   _zsh_nvm_has nvm_find_nvmrc || return
+
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
+
   if [[ -n "$nvmrc_path" ]]; then
     local nvmrc_node_version="$(nvm version $(cat "$nvmrc_path"))"
+
     if [[ "$nvmrc_node_version" = "N/A" ]]; then
       nvm install && export NVM_AUTO_USE_ACTIVE=true
     elif [[ "$nvmrc_node_version" != "$node_version" ]]; then
@@ -165,6 +174,7 @@ _zsh_nvm_auto_use() {
     nvm use default
   fi
 }
+
 _zsh_nvm_install_wrapper() {
   case $2 in
     'rc')
@@ -184,6 +194,7 @@ _zsh_nvm_install_wrapper() {
       ;;
   esac
 }
+
 # Don't init anything if this is true (debug/testing only)
 if [[ "$ZSH_NVM_NO_LOAD" != true ]]; then
 
