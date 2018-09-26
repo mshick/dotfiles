@@ -56,6 +56,7 @@ brew 'jp2a'
 brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
+brew 'python'
 brew 'p7zip'
 brew 'readline'
 brew 'ruby-build'

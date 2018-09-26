@@ -2,3 +2,4 @@ config.symlink
 config.symlink/hub
 config.symlink/configstore
 git/gitconfig.local.symlink
+.vscode
