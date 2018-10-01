@@ -50,7 +50,7 @@ bindkey '^?' backward-delete-char
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[magenta]%}• "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$fg_bold[magenta]%} "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[yellow]%}%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[red]%}%{x%G%}"
