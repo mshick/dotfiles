@@ -139,7 +139,7 @@ function homebrew-update() {
     echo ""
     echo "Updating Homebrew... "
     echo ""
-    brew analytics off 1> /dev/null && brew update 1> /dev/null && brew prune 1> /dev/null && brew doctor 1> /dev/null
+    brew analytics off 1> /dev/null && brew update 1> /dev/null && brew cleanup --prune-prefix 1> /dev/null && brew doctor 1> /dev/null
 }
 
 function cleanup-all() {
