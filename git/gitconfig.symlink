@@ -54,3 +54,7 @@
         cmd = code --wait --diff $LOCAL $REMOTE
 [commit]
 	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
+[user]
+	signingkey = A92EF69D40980EBA7972D949ADF5BC9704BB4A61
