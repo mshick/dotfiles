@@ -18,7 +18,7 @@ fi
 # Sourced from brew installed code
 # ----------------------------------------------------------------------
 
-history_path="$(brew --prefix zsh-history-substring-search)"
+history_path="$(brew --prefix zsh-history-substring-search)/share/zsh-history-substring-search"
 
 if [[ -d $history_path ]]; then
     source "${history_path}/zsh-history-substring-search.zsh"
