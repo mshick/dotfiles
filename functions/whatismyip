@@ -1,2 +1,2 @@
 # external IP
-echo -n "Current External IP: $(dig +short myip.opendns.com @resolver1.opendns.com)"
+echo -n "Current External IP: $(get-external-ip)"

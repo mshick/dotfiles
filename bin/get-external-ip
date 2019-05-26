@@ -2,9 +2,7 @@
 # http://osxdaily.com/2013/07/16/quick-external-ip-address-command-line/
 
 get-external-ip() {
-    dig @8.8.8.8 -t txt o-o.myaddr.l.google.com |
-    grep "client-subnet" |
-    grep -o "\([0-9]\{1,3\}\.\)\{3\}\([0-9]\{1,3\}\)"
+    curl -s http://checkip.amazonaws.com
 }
 
 get-external-ip
