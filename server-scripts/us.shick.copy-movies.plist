@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>us.shick.copy-movies</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/mshick/.dotfiles/server-scripts/copy-movies.sh</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>/Users/mshick/Library/Logs/us.shick.copy-movies/copy-movies.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/mshick/Library/Logs/us.shick.copy-movies/copy-movies.log</string>
+    <key>StartInterval</key>
+    <integer>300</integer>
+</dict>
+</plist>
