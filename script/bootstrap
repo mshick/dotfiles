@@ -30,7 +30,7 @@ setup_gitconfig () {
     read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
-    sed -e "s/AUTHORNAME/$git_authorname/g" config/hub.example > "$DOTFILES_ROOT/../.config/hub"
+    mkdir -p $DOTFILES_ROOT/../.config && touch $DOTFILES_ROOT/../.config/hub && sed -e "s/AUTHORNAME/$git_authorname/g" config/hub.example > "$DOTFILES_ROOT/../.config/hub"
 
     success 'gitconfig'
   fi
