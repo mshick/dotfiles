@@ -13,5 +13,5 @@ for file in "${files[@]}"; do
 
     echo "[$(date)] Copying file ${src} to ${dst}"
 
-    cp "${source_folder}/${file}" "${destination_folder}/${file}"
+    # cp "${source_folder}/${file}" "${destination_folder}/${file}"
 done
