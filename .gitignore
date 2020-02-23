@@ -3,3 +3,4 @@ config.symlink/hub
 config.symlink/configstore
 git/gitconfig.local.symlink
 .vscode
+Brewfile.lock.json
