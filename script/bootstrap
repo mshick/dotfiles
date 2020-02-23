@@ -36,6 +36,11 @@ setup_gitconfig () {
   fi
 }
 
+install_zim () {
+    info 'installing ZIM before everything else'
+    sh -c "$DOTFILES/zsh/install.sh"
+}
+
 install_dotfiles () {
   info 'installing dotfiles'
 
@@ -49,6 +54,7 @@ install_dotfiles () {
 }
 
 setup_gitconfig
+install_zim
 install_dotfiles
 
 # If we're on a Mac, do continue the package install
