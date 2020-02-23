@@ -42,8 +42,6 @@
         # Setting to git 2.0 default to surpress warning message
         default = simple
         followTags = true
-[credential]
-	    helper = osxkeychain
 [merge]
         tool = vscode
 [mergetool "vscode"]
@@ -56,5 +54,3 @@
 	gpgsign = true
 [gpg]
 	program = /usr/local/bin/gpg
-[user]
-	signingkey = A92EF69D40980EBA7972D949ADF5BC9704BB4A61

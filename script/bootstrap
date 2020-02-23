@@ -14,22 +14,31 @@ echo ''
 source "$DOTFILES/util/interactive"
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
+  if ! [ -f "$DOTFILES/../gitconfig.local" ]
   then
     info 'setup gitconfig'
 
     git_credential='cache'
-    if [ "$(uname -s)" == "Darwin" ]
-    then
-      git_credential='osxkeychain'
-    fi
 
+    git credential-osxkeychain
+
+    RESULT=$?
+
+    if [ $RESULT -eq 0 ]; then
+      echo "  Using osxkeychain as git credential helper."
+      git_credential='osxkeychain'
+    fi    
+
+    user ' - What is your github username?'
+    read -e git_username
     user ' - What is your github author name?'
     read -e git_authorname
     user ' - What is your github author email?'
     read -e git_authoremail
+    user ' - What is your GPG signing key?'
+    read -e git_signingkey    
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/USERNAME/$git_username/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" -e "s/SIGNINGKEY/$git_signingkey/g" git/gitconfig.local.example > "$DOTFILES/../gitconfig.local"
     mkdir -p $DOTFILES/../.config && touch $DOTFILES/../.config/hub && sed -e "s/AUTHORNAME/$git_authorname/g" config/hub.example > "$DOTFILES/../.config/hub"
 
     success 'gitconfig'
