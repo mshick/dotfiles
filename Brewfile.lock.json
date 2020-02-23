@@ -8,7 +8,7 @@
         "revision": "9ddb42a9add6845053d098ffc4c568b55b70776e"
       },
       "homebrew/cask-versions": {
-        "revision": "b9be770cbc1b0e193923370aa9dadb01d55ba76d"
+        "revision": "0da6975d681c9b8ebd075b64a118a6d0ee0b34c0"
       },
       "homebrew/cask-fonts": {
         "revision": "1dd9f144253e8b2f067eb9c4dfdc3ee8e226a680"
@@ -136,6 +136,51 @@
         "version": "5.2.0-20200130011203,cf82db8320",
         "options": {
           "full_name": "keybase",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "webcatalog": {
+        "version": "19.3.4",
+        "options": {
+          "full_name": "webcatalog",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "plex-media-player": {
+        "version": "2.51.0.1048-dda6b0b1",
+        "options": {
+          "full_name": "plex-media-player",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "notion": {
+        "version": "2.0.7",
+        "options": {
+          "full_name": "notion",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "plex": {
+        "version": "1.6.3.1009-57cf57c8",
+        "options": {
+          "full_name": "plex",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "plexamp": {
+        "version": "1.1.0",
+        "options": {
+          "full_name": "plexamp",
           "args": {
             "appdir": "/Applications"
           }
@@ -408,7 +453,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.6",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "b724587399ae9182b6edb4700e5f6e61fdc9ca18",
+        "Homebrew/homebrew-core": "32dae6428d5d9a8c0c321d18e08d16a0a13212f4",
         "CLT": "11.3.1.0.1.1576735732",
         "Xcode": "11.3.1",
         "macOS": "10.15.3"

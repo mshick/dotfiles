@@ -21,6 +21,10 @@ cask 'transmission'
 cask 'insomnia'
 cask 'messenger'
 cask 'keybase'
+cask 'webcatalog'
+cask 'plex'
+cask 'plexamp'
+cask 'notion'
 
 brew 'ack'
 brew 'coreutils'
@@ -43,4 +47,3 @@ mas "Xcode", id: 497799835
 # cask 'slack'
 # mas "1Password", id: 443987910
 # cask 'google-chrome'
-# cask 'plex-media-player'
