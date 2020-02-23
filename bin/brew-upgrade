@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Upgrade everything installed in this bundle
+
+cd "$DOTFILES"
+brew bundle

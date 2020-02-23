@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Thanks: http://justinlilly.com/dotfiles/zsh.html
 
 # Kills any process that matches a regexp passed to it

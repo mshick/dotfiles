@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # http://apple.stackexchange.com/questions/110662/possible-to-tag-a-folder-via-terminal
 # tags system explained: http://arstechnica.com/apple/2013/10/os-x-10-9/9/
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Thanks: http://justinlilly.com/dotfiles/zsh.html
 
 # Simple tree with find and sed.

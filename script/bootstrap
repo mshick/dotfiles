@@ -5,13 +5,13 @@
 export PATH=/usr/local/bin:$PATH
 
 cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd)
+DOTFILES=$(pwd)
 
 set -e
 
 echo ''
 
-source "$DOTFILES_ROOT/util/interactive"
+source "$DOTFILES/util/interactive"
 
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
@@ -30,7 +30,7 @@ setup_gitconfig () {
     read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
-    mkdir -p $DOTFILES_ROOT/../.config && touch $DOTFILES_ROOT/../.config/hub && sed -e "s/AUTHORNAME/$git_authorname/g" config/hub.example > "$DOTFILES_ROOT/../.config/hub"
+    mkdir -p $DOTFILES/../.config && touch $DOTFILES/../.config/hub && sed -e "s/AUTHORNAME/$git_authorname/g" config/hub.example > "$DOTFILES/../.config/hub"
 
     success 'gitconfig'
   fi
@@ -41,7 +41,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
+  for src in $(find -H "$DOTFILES" -maxdepth 2 -name '*.symlink')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
