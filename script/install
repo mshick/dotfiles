@@ -7,6 +7,9 @@ DOTFILES_ROOT=$(pwd)
 
 export DOTFILES=$HOME/.dotfiles
 
+# Source utils
+source "$DOTFILES/util/interactive"
+
 # Install Homebrew
 $DOTFILES/homebrew/install.sh 2>&1
 
@@ -17,7 +20,12 @@ brew update
 cd "$(dirname $0)"/..
 
 # Run Homebrew through the Brewfile
+
+user ' - Which brew bundle should I install? Type `server` or `client`.'
+read -e bundle_type
+
 echo "› brew bundle"
+cd "$DOTFILES/homebrew/bundles/$bundle_type"
 brew bundle
 
 # find the installers and run them iteratively

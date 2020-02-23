@@ -2,5 +2,6 @@
 #
 # Upgrade everything installed in this bundle
 
-cd "$DOTFILES"
+echo "Updating bundle for $1"
+cd "$DOTFILES/homebrew/bundles/$1"
 brew bundle
