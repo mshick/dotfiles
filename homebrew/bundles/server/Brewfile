@@ -19,7 +19,7 @@ brew "openssl"
 brew "unrar"
 brew "hub"
 brew "node"
-brew "ffmpeg", args:["--with-fdk-aac"]
+brew "ffmpeg"
 brew "atomicparsley"
 brew "ddclient"
 brew "nginx"
