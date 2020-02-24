@@ -14,7 +14,7 @@ echo ''
 source "$DOTFILES/util/interactive"
 
 setup_gitconfig () {
-  if ! [ -f "$DOTFILES/../gitconfig.local" ]
+  if ! [ -f "$DOTFILES/../.gitconfig.local" ]
   then
     info 'setup gitconfig'
 
@@ -29,7 +29,7 @@ setup_gitconfig () {
     user ' - What is your GPG signing key?'
     read -e git_signingkey
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/USERNAME/$git_username/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" -e "s/SIGNINGKEY/$git_signingkey/g" git/gitconfig.local.example > "$DOTFILES/../gitconfig.local"
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/USERNAME/$git_username/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" -e "s/SIGNINGKEY/$git_signingkey/g" git/gitconfig.local.example > "$DOTFILES/../.gitconfig.local"
     mkdir -p $DOTFILES/../.config && touch $DOTFILES/../.config/hub && sed -e "s/AUTHORNAME/$git_authorname/g" config/hub.example > "$DOTFILES/../.config/hub"
 
     success 'gitconfig'
