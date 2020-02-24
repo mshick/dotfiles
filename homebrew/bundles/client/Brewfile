@@ -25,6 +25,7 @@ cask "webcatalog"
 cask "plex"
 cask "plexamp"
 cask "notion"
+cask "google-cloud-sdk"
 
 brew "ack"
 brew "coreutils"
