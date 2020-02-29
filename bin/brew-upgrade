@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 #
-# Upgrade everything installed in this bundle
+# Upgrade everything homebrew
 
-echo "Updating bundle for $1"
-cd "$DOTFILES/homebrew/bundles/$1"
-brew bundle
+echo "Updating Homebrew packages"
+
+brew update
+brew upgrade
+brew cask upgrade
+brew cleanup
