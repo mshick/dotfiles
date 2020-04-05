@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Make the url to the input github organization's repository page.
+org_url="https://${GITHUB_TOKEN}:@api.github.com/orgs/${1}/repos?per_page=100";
+
+# List of all repositories of that organization (seperated by newline-eol).
+all_repos=$(curl -s ${org_url} | grep html_url | awk 'NR%2 == 0' | cut -d ':' -f 2-3 | tr -d '",');
+
+# Clone all the repositories.
+for repo in ${all_repos}; do
+    git clone ${repo}.git;
+done

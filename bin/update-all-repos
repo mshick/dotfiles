@@ -1,0 +1,14 @@
+#!/bin/sh
+
+base_dir="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
+
+pushd ${base_dir} > /dev/null
+
+for dir in */ ; do
+    echo "pulling in ${dir}"
+    pushd ${dir} > /dev/null
+    git pull --force --quiet
+    popd > /dev/null
+done
+
+popd > /dev/null
