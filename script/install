@@ -26,7 +26,7 @@ read -e bundle_type
 
 echo "› brew bundle"
 cd "$DOTFILES/homebrew/bundles/$bundle_type"
-brew bundle
+brew bundle -v
 
 # find the installers and run them iteratively
 set -e
