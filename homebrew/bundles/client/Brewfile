@@ -6,11 +6,18 @@ tap "homebrew/services"
 tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
+mas "1Password", id: 1333542190
+mas "Adblock Plus", id: 1432731683
+mas "Xcode" , id: 497799835
+mas "Pages", id: 409201541
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "LG Screen Manager", id: 1142051783
+mas "LittleIpsum", id: 40577212
+
 cask "xquartz"
-cask "visual-studio-code"
-
+cask "visual-studio-code-insiders"
 cask "firefox"
-
 cask "iina"
 cask "docker"
 cask "sketch"
@@ -25,9 +32,11 @@ cask "keybase"
 cask "webcatalog"
 cask "plex"
 cask "plexamp"
-cask "notion"
 cask "google-cloud-sdk"
 cask "adoptopenjdk"
+cask "slack"
+cask "google-chrome"
+cask "zoomus"
 
 brew "ack"
 brew "coreutils"
@@ -44,9 +53,3 @@ brew "unrar"
 brew "dnsmasq"
 brew "hub"
 brew "node"
-
-mas "Xcode", id: 497799835
-
-# cask "slack"
-# mas "1Password", id: 443987910
-# cask "google-chrome"
