@@ -11,7 +11,7 @@ if [[ ! -d "$HOME/.zim" ]]; then
     detail "zim framework not found, installing"
     chsh -s $(which zsh)
     mkdir -p "$HOME/.zim"
-    curl https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh -o "$HOME/.zim/.zimfw.zsh"
+    curl -L https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh -o "$HOME/.zim/zimfw.zsh"
     zsh ~/.zim/zimfw.zsh install
 fi
 
