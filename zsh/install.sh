@@ -1,12 +1,27 @@
 #!/bin/sh
-#
-# Zsh IMproved FrameWork (ZIM)
-# https://github.com/zimfw/zimfw
 
-# Check for ZIM
-ZIM_CONFIG_DIR=~/.zim
+source "$DOTFILES/util/interactive"
 
-if [[ ! -d "$ZIM_CONFIG_DIR" ]]; then
-  echo "  Installing Zsh IMproved FrameWork (ZIM) for you."
-  curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+info "running zsh/install"
+
+pushd $DOTFILES/zsh > /dev/null
+
+if [[ ! -d "$HOME/.zim" ]]; then
+    # Zsh IMproved FrameWork (ZIM) https://github.com/zimfw/zimfw
+    detail "zim framework not found, installing"
+    chsh -s $(which zsh)
+    mkdir -p "$HOME/.zim"
+    curl https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh -o "$HOME/.zim/.zimfw.zsh"
+    zsh ~/.zim/zimfw.zsh install
 fi
+
+if [[ ! -f "$HOME/.zprofile" ]]; then
+    detail ".zprofile not found, installing"
+    cp ./zprofile.example "$HOME/.zprofile"
+fi
+
+popd > /dev/null
+
+success "zsh/install"
+
+exit 0

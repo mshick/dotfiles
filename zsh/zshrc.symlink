@@ -1,15 +1,4 @@
-# shortcut to this dotfiles path is $ZSH
-export DOTFILES=$HOME/.dotfiles
-
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
+export DOTFILES="$( cd "$(dirname "$0")/.." >/dev/null 2>&1 ; pwd -P )"
 
 # all of our zsh files
 typeset -U config_files
@@ -152,6 +141,7 @@ bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
+
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}

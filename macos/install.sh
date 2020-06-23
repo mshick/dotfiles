@@ -1,16 +1,13 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
+source "$DOTFILES/util/interactive"
+
+info "running macos/install"
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
-
-# Ask for the administrator password upfront
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -176,28 +173,30 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Transmission.app                                                            #
 ###############################################################################
 
-# Use `~/Documents/Torrents` to store incomplete downloads
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads"
+if [ -d '/Applications/Transmission.app' ]; then
+    # Use `~/Documents/Torrents` to store incomplete downloads
+    defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
+    defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads"
 
-# Don’t prompt for confirmation before downloading
-defaults write org.m0k.transmission DownloadAsk -bool false
-defaults write org.m0k.transmission MagnetOpenAsk -bool false
+    # Don’t prompt for confirmation before downloading
+    defaults write org.m0k.transmission DownloadAsk -bool false
+    defaults write org.m0k.transmission MagnetOpenAsk -bool false
 
-# Trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+    # Trash original torrent files
+    defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 
-# Hide the donate message
-defaults write org.m0k.transmission WarningDonate -bool false
+    # Hide the donate message
+    defaults write org.m0k.transmission WarningDonate -bool false
 
-# Hide the legal disclaimer
-defaults write org.m0k.transmission WarningLegal -bool false
+    # Hide the legal disclaimer
+    defaults write org.m0k.transmission WarningLegal -bool false
 
-# IP block list.
-# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-defaults write org.m0k.transmission BlocklistNew -bool true
-defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
+    # IP block list.
+    # Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
+    defaults write org.m0k.transmission BlocklistNew -bool true
+    defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+    defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
+fi
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -209,4 +208,7 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Transmission"; do
 	killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+success "macos/install"
+
+exit 0
