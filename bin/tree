@@ -9,4 +9,4 @@ else
   dir=$PWD
 fi
 
-find $dir -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+find "$dir" -path '*/.git' -prune -o  -type d -print | sort | sed "s:^$dir::" | sed -e 's;[^/]*/;|____;g;s;____|; |;g'

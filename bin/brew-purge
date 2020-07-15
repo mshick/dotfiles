@@ -1,0 +1,25 @@
+#!/bin/zsh
+# Usage: brew purge formula
+#
+# Removes the package and all dependancies.
+
+PKG="$1"
+
+if [ -z "$PKG" ]; then
+  brew purge --help
+  exit 1
+fi
+
+brew rm $PKG
+
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+while brew rm $(join <(brew leaves) <(brew deps $PKG)) 2>/dev/null; do
+  :
+done
+
+echo "Package $PKG and its dependencies have been removed."
+
+exit 0
