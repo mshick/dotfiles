@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
-
-# Thanks: http://justinlilly.com/dotfiles/zsh.html
-
+#!/bin/zsh
+#
 # Kills any process that matches a regexp passed to it
+# Thanks: http://justinlilly.com/dotfiles/zsh.html
 
 if [[ -n $1 ]] ; then
   ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill -9

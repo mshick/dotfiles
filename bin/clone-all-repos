@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Make the url to the input github organization's repository page.
 org_url="https://${GITHUB_TOKEN}:@api.github.com/orgs/${1}/repos?per_page=100";

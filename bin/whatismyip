@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/zsh
+#
+# Gets external IP
 
-# external IP
-echo -n "Current External IP: $(get-external-ip)"
+echo -n "$(get-external-ip)"

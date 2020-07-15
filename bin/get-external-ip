@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# http://osxdaily.com/2013/07/16/quick-external-ip-address-command-line/
-
-get-external-ip() {
-    curl -s http://checkip.amazonaws.com
-}
-
-get-external-ip

@@ -1,11 +1,11 @@
 #!/bin/sh
 
-source "$DOTFILES/util/interactive"
+source "${ZSH}/util/interactive"
 
 info "running git/install"
 
 if ! [ -f "$HOME/.gitconfig.local" ]; then
-    pushd $DOTFILES/git > /dev/null
+    pushd ${ZSH}/git > /dev/null
 
     detail "installing gitconfig.local"
 

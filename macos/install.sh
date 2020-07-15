@@ -1,7 +1,7 @@
 #!/bin/sh
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
-source "$DOTFILES/util/interactive"
+source "${ZSH}/util/interactive"
 
 info "running macos/install"
 

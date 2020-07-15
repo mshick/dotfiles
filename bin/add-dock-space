@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/zsh
+#
 # http://www.imore.com/add-space-your-mac-dock
 
 if [ "$1" = "right" ] ; then

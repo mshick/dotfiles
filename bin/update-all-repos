@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 base_dir="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
 

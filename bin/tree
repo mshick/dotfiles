@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
-
-# Thanks: http://justinlilly.com/dotfiles/zsh.html
-
+#!/bin/zsh
+#
 # Simple tree with find and sed.
+# Thanks: http://justinlilly.com/dotfiles/zsh.html
 
 if [[ -n $@ ]] ; then
   dir=$@

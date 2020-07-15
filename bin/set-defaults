@@ -2,4 +2,4 @@
 #
 # Sets OS X defaults by running $DOTFILES/macos/set-defaults.sh.
 
-exec $DOTFILES/macos/set-defaults.sh
+exec "${ZSH}/macos/set-defaults.sh"

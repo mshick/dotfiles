@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
-
+#!/bin/zsh
+#
 # https://github.com/derrekyoung/ScriptsAndUtils/blob/master/brew-cask-upgrade.sh
-
 
 # Helpers
 # --------------

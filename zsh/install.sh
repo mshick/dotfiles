@@ -1,10 +1,10 @@
 #!/bin/sh
 
-source "$DOTFILES/util/interactive"
+source "${ZSH}/util/interactive"
 
 info "running zsh/install"
 
-pushd $DOTFILES/zsh > /dev/null
+pushd ${ZSH}/zsh > /dev/null
 
 if [[ ! -d "$HOME/.zim" ]]; then
     # Zsh IMproved FrameWork (ZIM) https://github.com/zimfw/zimfw
