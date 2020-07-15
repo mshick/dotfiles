@@ -1,5 +1,0 @@
-#!/bin/zsh
-#
-# Gets external IP
-
-echo -n "$(get-external-ip)"

@@ -8,10 +8,6 @@ export PROJECTS=${PROJECTS:-${HOME}/Code}
 # default editor command
 export EDITOR=${EDITOR:-code}
 
-fpath=($ZSH/functions $fpath)
-
-autoload -U $ZSH/functions/*(:t)
-
 # all of our zsh files
 typeset -U config_files
 config_files=(${ZSH}/**/*.zsh)
@@ -27,8 +23,6 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
-
-fpath=(/usr/local/share/zsh/site-functions ${fpath})
 
 # Start configuration added by Zim install {{{
 #
@@ -160,6 +154,8 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
+# initialize zsh functions and custom completions
+autoload -U $ZSH/functions/*(:t)
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}

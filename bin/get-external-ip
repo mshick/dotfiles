@@ -2,6 +2,4 @@
 #
 # http://osxdaily.com/2013/07/16/quick-external-ip-address-command-line/
 
-function get-external-ip {
-  curl -s http://checkip.amazonaws.com
-}
+curl -s http://checkip.amazonaws.com
