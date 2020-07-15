@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source "$DOTFILES/util/interactive"
+source "${ZSH}/util/interactive"
 
 info "running homebrew/install"
 
@@ -14,7 +14,7 @@ user "Which brew bundle should I install? Type 'server' or 'client'."
 
 read -e bundle_type
 
-pushd "$DOTFILES/homebrew/bundles/$bundle_type" > /dev/null
+pushd "${ZSH}/homebrew/bundles/$bundle_type" > /dev/null
 
 detail "installing ${bundle_type} homebrew bundle"
 brew update > /dev/null

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source "$DOTFILES/util/interactive"
+source "${ZSH}/util/interactive"
 
 info "running dnsmasq/install"
 
