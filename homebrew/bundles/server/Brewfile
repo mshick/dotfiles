@@ -1,22 +1,25 @@
 cask_args appdir: "/Applications"
+cask_args "no-quarantine": true
 
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "homebrew/cask-versions"
-tap "homebrew/cask-fonts"
 
+mas "Xcode" , id: 497799835
+
+cask "visual-studio-code-insiders"
 cask "plex"
 
-brew "ack"
 brew "coreutils"
+brew "docker-clean"
 brew "findutils"
-brew "grc"
+brew "go"
 brew "gnu-tar"
 brew "gnu-sed"
 brew "gawk"
 brew "gnutls"
 brew "openssl"
 brew "unrar"
+brew "dnsmasq"
 brew "hub"
 brew "node"
 brew "ffmpeg"
@@ -25,5 +28,3 @@ brew "ddclient"
 brew "nginx"
 brew "transmission-cli"
 brew "watchman"
-
-mas "Xcode", id: 497799835
