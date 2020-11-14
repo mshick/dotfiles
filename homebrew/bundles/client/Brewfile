@@ -4,14 +4,12 @@ cask_args "no-quarantine": true
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "homebrew/cask-versions"
-tap "homebrew/cask-fonts"
 
-# mas "Xcode" , id: 497799835
-
+# Mac App Store
 mas "1Password", id: 1333542190
 mas "AdBlock", id: 1402042596
-mas "LG Screen Manager", id: 1142051783
 mas "Messenger", id: 1480068668
+mas "Meeter", id: 1510445899
 
 # Libraries
 cask "xquartz"
@@ -26,20 +24,18 @@ cask "gpg-suite"
 cask "keybase"
 
 # Dev tools
-cask "visual-studio-code-insiders"
+cask "visual-studio-code"
 cask "docker"
 cask "postico"
-cask "kitematic"
 cask "insomnia"
 
 # Other
 cask "iina"
-cask "google-drive-file-stream"
 cask "transmission"
 cask "webcatalog"
 cask "plex"
 cask "plexamp"
-cask "google-chrome-beta"
+cask "google-chrome"
 
 # Formulas
 brew "awscli"
@@ -56,5 +52,3 @@ brew "unrar"
 brew "dnsmasq"
 brew "hub"
 brew "node"
-brew "yarn"
-brew "yarn-completion"

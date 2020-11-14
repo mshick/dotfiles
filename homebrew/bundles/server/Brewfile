@@ -4,15 +4,16 @@ cask_args "no-quarantine": true
 tap "homebrew/bundle"
 tap "homebrew/services"
 
-mas "Xcode" , id: 497799835
+# Mac App Store
+mas "1Password", id: 1333542190
 
-cask "visual-studio-code-insiders"
+# Applications
+cask "plex-media-server"
 cask "plex"
 
+# Formulas
 brew "coreutils"
-brew "docker-clean"
 brew "findutils"
-brew "go"
 brew "gnu-tar"
 brew "gnu-sed"
 brew "gawk"

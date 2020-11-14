@@ -5,6 +5,13 @@ source "${ZSH}/util/interactive"
 
 info "running macos/install"
 
+if xcode-select --install 2>&1 | grep installed; then
+  info "command line tools already installed, attempting to update"
+  softwareupdate -i -a
+else
+  info "command line tools were not installed, so I installed them"
+fi
+
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
