@@ -12,7 +12,6 @@ mas "Messenger", id: 1480068668
 mas "Meeter", id: 1510445899
 
 # Libraries
-cask "xquartz"
 cask "google-cloud-sdk"
 cask "adoptopenjdk"
 
