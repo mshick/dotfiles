@@ -8,7 +8,6 @@ tap "homebrew/cask-versions"
 # Mac App Store
 mas "1Password", id: 1333542190
 mas "AdBlock", id: 1402042596
-mas "Messenger", id: 1480068668
 mas "Meeter", id: 1510445899
 
 # Libraries
@@ -35,6 +34,7 @@ cask "webcatalog"
 cask "plex"
 cask "plexamp"
 cask "google-chrome"
+cask "goofy"
 
 # Formulas
 brew "awscli"
@@ -51,3 +51,4 @@ brew "unrar"
 brew "dnsmasq"
 brew "hub"
 brew "node"
+brew "tag"

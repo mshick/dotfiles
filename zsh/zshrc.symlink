@@ -82,7 +82,7 @@ WORDCHARS=${WORDCHARS//[\/]}
 # ssh
 #
 
-zstyle ':zim:ssh' ids 'id_rsa' 'mshick@github.com'
+#zstyle ':zim:ssh' ids 'id_rsa' 'mshick@github.com'
 
 #
 # input
