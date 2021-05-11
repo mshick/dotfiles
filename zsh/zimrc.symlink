@@ -18,7 +18,7 @@ zmodule archive
 # Adds aliases for Homebrew.
 zmodule homebrew
 # Provides a convenient way to load ssh-agent.
-zmodule ssh
+# zmodule ssh
 
 #
 # Prompt
