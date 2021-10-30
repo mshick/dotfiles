@@ -7,8 +7,6 @@ tap "homebrew/cask-versions"
 
 # Mac App Store
 mas "1Password", id: 1333542190
-mas "AdBlock", id: 1402042596
-mas "Meeter", id: 1510445899
 
 # Libraries
 cask "google-cloud-sdk"
@@ -17,9 +15,10 @@ cask "adoptopenjdk"
 # Communications apps
 cask "slack"
 cask "discord"
-cask "zoomus"
-cask "gpg-suite"
+cask "zoom"
+cask "gpg-suite-no-mail"
 cask "keybase"
+cask "whatsapp"
 
 # Dev tools
 cask "visual-studio-code"
@@ -34,12 +33,10 @@ cask "webcatalog"
 cask "plex"
 cask "plexamp"
 cask "google-chrome"
-cask "goofy"
 
 # Formulas
 brew "awscli"
 brew "coreutils"
-brew "docker-clean"
 brew "findutils"
 brew "go"
 brew "gnu-tar"
@@ -47,8 +44,8 @@ brew "gnu-sed"
 brew "gawk"
 brew "gnutls"
 brew "openssl"
-brew "unrar"
 brew "dnsmasq"
 brew "hub"
 brew "node"
 brew "tag"
+brew "gh"

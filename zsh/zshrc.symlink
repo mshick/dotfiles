@@ -1,5 +1,12 @@
-# prefer gnu tools
-PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH"
+arch_name="$(uname -m)"
+
+if [ "$(uname -m)" = "x86_64" ]; then
+  PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH"
+  eval "$(/use/local/bin/brew shellenv)"
+else
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=${HOME}/.dotfiles
