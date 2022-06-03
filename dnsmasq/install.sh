@@ -19,7 +19,7 @@ fi
 
 if ! [ "$(grep -q "^${test_address}" ${dnsmasq_conf_file})" ]; then
   detail "creating .test TLD"
-  printf "\n${test_address}\n" >> "${dnsmasq_conf_file}"
+  printf "\n${test_address}\n" >>"${dnsmasq_conf_file}"
   sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
 else
   detail ".test TLD already exists, skipping"
@@ -27,7 +27,7 @@ fi
 
 if ! [ "$(grep -q "^${localhost_address}" ${dnsmasq_conf_file})" ]; then
   detail "creating .localhost TLD"
-  printf "\n${localhost_address}\n" >> "${dnsmasq_conf_file}"
+  printf "\n${localhost_address}\n" >>"${dnsmasq_conf_file}"
   sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/localhost'
 else
   detail ".localhost TLD already exists, skipping"
