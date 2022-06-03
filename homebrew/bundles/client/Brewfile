@@ -14,11 +14,8 @@ cask "adoptopenjdk"
 
 # Communications apps
 cask "slack"
-cask "discord"
 cask "zoom"
 cask "gpg-suite-no-mail"
-cask "keybase"
-cask "whatsapp"
 
 # Dev tools
 cask "visual-studio-code"
@@ -44,8 +41,6 @@ brew "gnu-sed"
 brew "gawk"
 brew "gnutls"
 brew "openssl"
-brew "dnsmasq"
-brew "hub"
-brew "node"
+brew "node@14"
 brew "tag"
 brew "gh"

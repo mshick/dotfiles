@@ -139,29 +139,8 @@ defaults write com.apple.terminal "Default Window Settings" "mshick"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 ###############################################################################
-# Activity Monitor                                                            #
+# Disk Utility                                                                #
 ###############################################################################
-
-# Show the main window when launching Activity Monitor
-defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
-
-# Show all processes in Activity Monitor
-defaults write com.apple.ActivityMonitor ShowCategory -int 0
-
-# Sort Activity Monitor results by CPU usage
-defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
-defaults write com.apple.ActivityMonitor SortDirection -int 0
-
-###############################################################################
-# Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
-###############################################################################
-
-# Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
-
-# Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 # Enable the debug menu in Disk Utility
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
@@ -185,39 +164,39 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 
 if [ -d '/Applications/Transmission.app' ]; then
-    # Use `~/Documents/Torrents` to store incomplete downloads
-    defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-    defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads"
+  # Use `~/Documents/Torrents` to store incomplete downloads
+  defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
+  defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads"
 
-    # Don’t prompt for confirmation before downloading
-    defaults write org.m0k.transmission DownloadAsk -bool false
-    defaults write org.m0k.transmission MagnetOpenAsk -bool false
+  # Don’t prompt for confirmation before downloading
+  defaults write org.m0k.transmission DownloadAsk -bool false
+  defaults write org.m0k.transmission MagnetOpenAsk -bool false
 
-    # Trash original torrent files
-    defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+  # Trash original torrent files
+  defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 
-    # Hide the donate message
-    defaults write org.m0k.transmission WarningDonate -bool false
+  # Hide the donate message
+  defaults write org.m0k.transmission WarningDonate -bool false
 
-    # Hide the legal disclaimer
-    defaults write org.m0k.transmission WarningLegal -bool false
+  # Hide the legal disclaimer
+  defaults write org.m0k.transmission WarningLegal -bool false
 
-    # IP block list.
-    # Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-    defaults write org.m0k.transmission BlocklistNew -bool true
-    defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-    defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
+  # IP block list.
+  # Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
+  defaults write org.m0k.transmission BlocklistNew -bool true
+  defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+  defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 fi
 
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-	"Dock" "Finder" "Messages" \
-	"Safari" "SystemUIServer" \
-	"Transmission"; do
-	killall "${app}" &> /dev/null
+for app in "cfprefsd" \
+  "Dock" "Finder" "Messages" \
+  "Safari" "SystemUIServer" \
+  "Transmission"; do
+  killall "${app}" &>/dev/null
 done
 
 success "macos/install"
