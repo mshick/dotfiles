@@ -9,9 +9,6 @@ fi
 # shortcut to this dotfiles path is $ZSH
 export ZSH=${HOME}/.dotfiles
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=${PROJECTS:-${HOME}/Code}
-
 # default editor command
 export EDITOR=${EDITOR:-code}
 
@@ -31,7 +28,11 @@ do
   source $file
 done
 
+# Homebrew installed autocompletions
 fpath=(/opt/homebrew/Cellar/hub/2.14.2/share/zsh/site-functions $fpath)
+
+# fnm node version manager
+eval "$(fnm env --use-on-cd)"
 
 # Start configuration added by Zim install {{{
 #
