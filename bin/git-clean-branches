@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Removes all branches that do not exist on the remote
+
+git fetch --all --prune
+git branch --list --format \
+  "%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)" |
+  xargs git branch -D
