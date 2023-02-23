@@ -163,3 +163,8 @@ bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
+
+# pnpm
+export PNPM_HOME="/Users/mshick/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
