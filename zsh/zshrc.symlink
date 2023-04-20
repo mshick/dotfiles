@@ -168,3 +168,5 @@ bindkey -M vicmd 'j' history-substring-search-down
 export PNPM_HOME="/Users/mshick/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+
