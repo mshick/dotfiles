@@ -13,6 +13,8 @@
         count   = !git shortlog -sn
         commend = commit --amend --no-edit
         squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
+        main = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+        main-merge = !current=$(git branch --show-current) && git checkout $(git main) && git pull origin $(git main) && git checkout $current && git merge $(git main)
 [color]
         ui = true
 [color "diff"]
@@ -31,7 +33,7 @@
         untracked = blue bold
 [core]
         excludesfile = ~/.gitignore
-	    editor = code --wait
+	      editor = cursor --wait
 [apply]
         whitespace = nowarn
 [help]
@@ -44,13 +46,13 @@
         default = simple
         followTags = true
 [merge]
-        tool = vscode
-[mergetool "vscode"]
-        cmd = code --wait $MERGED
+        tool = cursor
+[mergetool "cursor"]
+        cmd = cursor --wait $MERGED
 [diff]
-        tool = vscode
-[difftool "vscode"]
-        cmd = code --wait --diff $LOCAL $REMOTE
+        tool = cursor
+[difftool "cursor"]
+        cmd = cursor --wait --diff $LOCAL $REMOTE
 [commit]
 	gpgsign = true
 [gpg]
