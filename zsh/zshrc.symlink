@@ -6,6 +6,10 @@ else
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  . "$(code --locate-shell-integration-path zsh)"
+fi
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=${HOME}/.dotfiles
 
@@ -170,3 +174,6 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 
+
+# Shopify Hydrogen alias to local projects
+alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
