@@ -143,7 +143,6 @@ local plugins = {
       local formatters_by_ft = {
         lua = { "stylua" },
         python = { "black" },
-        ruby = { "rubocop" },
         go = { "gofumpt", "gofmt" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
@@ -533,7 +532,7 @@ local plugins = {
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "lua_ls", "ts_ls", "ruby_lsp", "gopls", "buf_ls", "eslint", "astro" },
+      ensure_installed = { "lua_ls", "ts_ls", "gopls", "buf_ls", "eslint", "astro" },
     },
     dependencies = {
       "mason-org/mason.nvim",
@@ -609,12 +608,6 @@ local plugins = {
         },
       })
 
-      vim.lsp.config("ruby_lsp", {
-        capabilities = capabilities,
-        cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
-        filetypes = { "ruby", "eruby" },
-      })
-
       vim.lsp.config("ts_ls", {
         capabilities = capabilities,
         init_options = {
@@ -667,12 +660,12 @@ local plugins = {
       -- Enable all configured LSP servers
       -- Note: When private config is loaded, it may provide custom LSP wrappers
       -- that replace the base servers for better monorepo support
-      local base_servers = { "gopls", "ruby_lsp", "ts_ls", "buf_ls", "astro", "eslint", "lua_ls" }
+      local base_servers = { "gopls", "ts_ls", "buf_ls", "astro", "eslint", "lua_ls" }
 
       if private.setup_lsp then
-        -- Private config may have its own gopls and ruby wrappers, so exclude the base ones
+        -- Private config may have its own gopls wrappers, so exclude the base ones
         base_servers = vim.tbl_filter(function(server)
-          return server ~= "gopls" and server ~= "ruby_lsp"
+          return server ~= "gopls"
         end, base_servers)
       end
 
@@ -726,14 +719,6 @@ local plugins = {
     build = ":TSUpdate",
     config = function()
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-      parser_config.blade = {
-        install_info = {
-          url = "https://github.com/EmranMR/tree-sitter-blade",
-          files = { "src/parser.c" },
-          branch = "main",
-        },
-        filetype = "blade",
-      }
       require("nvim-treesitter.configs").setup({
         endwise = {
           enable = true,
@@ -742,7 +727,6 @@ local plugins = {
           "go",
           "gomod",
           "lua",
-          "ruby",
           "vimdoc",
           "vim",
           "bash",
@@ -762,8 +746,6 @@ local plugins = {
           "yaml",
           "tsx",
           "dockerfile",
-          "php_only",
-          "blade",
           "svelte",
           "astro",
         },
@@ -843,12 +825,6 @@ local plugins = {
               ["<leader>wp"] = "@parameter.inner",
             },
           },
-        },
-      })
-
-      vim.filetype.add({
-        pattern = {
-          [".*%.blade%.php"] = "blade",
         },
       })
     end,

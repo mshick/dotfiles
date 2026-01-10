@@ -152,6 +152,7 @@ install-fish:
     # Install fisher plugin manager
     fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
     fish -c "fisher update"
+    fish -c "fisher install jorgebucaran/nvm.fish"
 
 # Install tmux plugin manager (TPM)
 install-tmux-plugins:
@@ -175,21 +176,29 @@ link: link-fish link-neovim link-terminal link-git link-tmux link-starship link-
 
 # Link fish configuration
 link-fish:
-    @mkdir -p ~/.config/fish/conf.d
-    @mkdir -p ~/.config/fish/functions
-    @ln -sf {{justfile_directory()}}/config.fish ~/.config/fish/config.fish
-    @ln -sf {{justfile_directory()}}/fish_plugins ~/.config/fish/fish_plugins
-    @for f in {{justfile_directory()}}/fish/conf.d/*.fish; do ln -sf "$$f" ~/.config/fish/conf.d/; done
-    @for f in {{justfile_directory()}}/fish/functions/*.fish; do ln -sf "$$f" ~/.config/fish/functions/; done
-    @echo "✓ Fish config linked"
+    #!/usr/bin/env bash
+    mkdir -p ~/.config/fish/conf.d
+    mkdir -p ~/.config/fish/functions
+    ln -sf {{justfile_directory()}}/config.fish ~/.config/fish/config.fish
+    ln -sf {{justfile_directory()}}/fish_plugins ~/.config/fish/fish_plugins
+    for f in {{justfile_directory()}}/fish/conf.d/*.fish; do
+        ln -sf "$f" ~/.config/fish/conf.d/$(basename "$f")
+    done
+    for f in {{justfile_directory()}}/fish/functions/*.fish; do
+        ln -sf "$f" ~/.config/fish/functions/$(basename "$f")
+    done
+    echo "✓ Fish config linked"
 
 # Link Neovim configuration
 link-neovim:
-    @ln -sf {{justfile_directory()}}/init.lua ~/.config/nvim/init.lua
-    @ln -sf {{justfile_directory()}}/.stylua.toml ~/.config/nvim/.stylua.toml
-    @mkdir -p ~/.config/nvim/lua/config
-    @for f in {{justfile_directory()}}/lua/config/*.lua; do ln -sf "$$f" ~/.config/nvim/lua/config/; done
-    @echo "✓ Neovim config linked"
+    #!/usr/bin/env bash
+    ln -sf {{justfile_directory()}}/init.lua ~/.config/nvim/init.lua
+    ln -sf {{justfile_directory()}}/.stylua.toml ~/.config/nvim/.stylua.toml
+    mkdir -p ~/.config/nvim/lua/config
+    for f in {{justfile_directory()}}/lua/config/*.lua; do
+        ln -sf "$f" ~/.config/nvim/lua/config/$(basename "$f")
+    done
+    echo "✓ Neovim config linked"
 
 # Link terminal emulator configs
 link-terminal:
@@ -225,9 +234,12 @@ link-claude:
 
 # Link helper scripts (tmux-open-in-nvim, tmux-fzf-files, etc.)
 link-bin:
-    @mkdir -p ~/.dotfiles/bin
-    @for f in {{justfile_directory()}}/bin/*; do ln -sf "$$f" ~/.dotfiles/bin/; done
-    @echo "✓ Helper scripts linked"
+    #!/usr/bin/env bash
+    mkdir -p ~/.dotfiles/bin
+    for f in {{justfile_directory()}}/bin/*; do
+        ln -sf "$f" ~/.dotfiles/bin/$(basename "$f")
+    done
+    echo "✓ Helper scripts linked"
 
 # ============================================================================
 # Maintenance

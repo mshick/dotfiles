@@ -19,9 +19,6 @@ if status is-interactive
     # FZF key bindings (Ctrl+R for history, Ctrl+T for files)
     command -q fzf; and fzf --fish 2>/dev/null | source
 
-    # Ruby version manager
-    command -q rbenv; and rbenv init - fish | source
-
     # Python version manager
     command -q pyenv; and pyenv init - | source
 
@@ -54,4 +51,8 @@ if status is-interactive
 
     # Private/work-related config (not in git)
     test -f ~/.private.fish; and source ~/.private.fish
+
+    # VSCode Fish shell integration
+    string match -q "$TERM_PROGRAM" "vscode"
+    and . (code --locate-shell-integration-path fish)
 end

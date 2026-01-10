@@ -12,30 +12,30 @@ $character
 """
 
 [palettes.poimandres-storm]
-bright-yellow = "#fffac2"
-bright-mint = "#5de4c7"
-lower-mint = "#5fb3a1"
-blueish-green = "#42675a"
-lower-blue = "#89ddff"
-light-blue = "#add7ff"
-desaturated-blue = "#91b4d5"
+bg                  = "#252b37"
+black               = "#101010"
+blueish-green       = "#42675a"
+bluish-gray         = "#607487"
 bluishGray-brighter = "#7390aa"
-hot-red = "#d0679d"
-pink = "#f087bd"
-gray = "#a6accd"
-white = "#ffffff"
-off-white = "#e4f0fb"
-darker-gray = "#868cad"
-bluish-gray = "#607487"
-selection = "#33394a"
-focus = "#404350"
-bg = "#252b37"
-black = "#101010"
+bright-mint         = "#5de4c7"
+bright-yellow       = "#fffac2"
+darker-gray         = "#868cad"
+desaturated-blue    = "#91b4d5"
+focus               = "#404350"
+gray                = "#a6accd"
+hot-red             = "#d0679d"
+light-blue          = "#add7ff"
+lower-blue          = "#89ddff"
+lower-mint          = "#5fb3a1"
+off-white           = "#e4f0fb"
+pink                = "#f087bd"
+selection           = "#33394a"
+white               = "#ffffff"
 
 [character]
+error_symbol   = "\n[❯](red)"
 success_symbol = "\n[❯](purple)"
-error_symbol = "\n[❯](red)"
-vimcmd_symbol = "\n[❮](green)"
+vimcmd_symbol  = "\n[❮](green)"
 
 [battery]
 disabled = true
@@ -47,7 +47,7 @@ format = "[$duration](gray)"
 format = "[](bright-mint)[ ](bg:bright-mint)[](bg:lower-mint fg:bright-mint)[ $path ](bg:lower-mint fg:black)"
 
 [git_branch]
-format = "[ $branch ](bg:blueish-green fg:off-white)"
+format            = "[ $branch ](bg:blueish-green fg:off-white)"
 truncation_length = 30
 truncation_symbol = "…"
 
@@ -56,22 +56,22 @@ format = "[ $state( $progress_current/$progress_total)](bg:blueish-green fg:brig
 
 [git_status]
 # Show dirty indicator (styled box like before) and ahead/behind
-format = "([](hot-red)[$modified](bg:hot-red fg:black)[](fg:hot-red))[($ahead_behind )](darker-gray)"
-modified = "*"
-staged = ""
-untracked = ""
-renamed = ""
-deleted = ""
-conflicted = ""
+ahead       = "⇡$count"
+behind      = "⇣$count"
+conflicted  = ""
+deleted     = ""
+diverged    = "⇡$ahead_count⇣$behind_count"
+format      = "([](hot-red)[$modified](bg:hot-red fg:black)[](fg:hot-red))[($ahead_behind )](darker-gray)"
+modified    = "*"
+renamed     = ""
+staged      = ""
+stashed     = ""
 typechanged = ""
-stashed = ""
-ahead = "⇡$count"
-behind = "⇣$count"
-diverged = "⇡$ahead_count⇣$behind_count"
+untracked   = ""
 
 [git_metrics]
 disabled = false
-format = "([ +$added ](bg:focus fg:bright-mint))([ -$deleted ](bg:focus fg:hot-red))[](fg:focus)"
+format   = "([ +$added ](bg:focus fg:bright-mint))([ -$deleted ](bg:focus fg:hot-red))[](fg:focus)"
 
 [nodejs]
 disabled = true
