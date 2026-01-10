@@ -38,6 +38,9 @@ fpath=(/opt/homebrew/Cellar/hub/2.14.2/share/zsh/site-functions $fpath)
 # fnm node version manager
 eval "$(fnm env --version-file-strategy=recursive --corepack-enabled)"
 
+# starship prompt
+eval "$(starship init zsh)"
+
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
