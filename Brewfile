@@ -55,7 +55,7 @@ brew "gofumpt"        # Go
 # macOS Applications
 cask "ghostty"
 cask "slack"
-cask "docker"
+cask "docker-desktop"
 cask "visual-studio-code"
 cask "gpg-suite-no-mail"
 cask "zoom"
