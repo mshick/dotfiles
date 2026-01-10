@@ -209,16 +209,18 @@ local plugins = {
       })
     end,
   },
-  -- colorscheme
+  -- colorscheme (Gruvbox to match Ghostty terminal theme)
   {
-    "jasonlong/poimandres.nvim",
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-      style = "storm",
+      contrast = "hard", -- Matches "Gruvbox Dark Hard" in Ghostty
+      transparent_mode = false,
     },
-    config = function()
-      vim.cmd([[colorscheme poimandres]])
+    config = function(_, opts)
+      require("gruvbox").setup(opts)
+      vim.cmd([[colorscheme gruvbox]])
     end,
   },
   {

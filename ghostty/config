@@ -6,22 +6,17 @@ font-style-bold-italic = Bold Italic
 font-size = 14
 font-feature = "-calt"
 
+# Shell command
+command = /opt/homebrew/bin/tmux
+
 # shell-integration-features = sudo
 shell-integration = fish
+shell-integration-features = no-cursor
 
 # Leading
 adjust-cell-height = 35%
-
 macos-option-as-alt = true
-macos-titlebar-style = tabs
-window-colorspace = display-p3
-window-padding-balance = true
-window-padding-x = 5
-window-padding-y = 0
-window-save-state = always
-
-cursor-color = #607487
-background = #252b37
+macos-titlebar-style = transparent
 background-opacity = 1
 background-blur-radius = 20
 
@@ -42,6 +37,10 @@ clipboard-trim-trailing-spaces = true
 theme = Gruvbox Dark Hard
 
 # Window variables
+window-colorspace = display-p3
+window-padding-balance = true
+window-padding-x = 5
+window-padding-y = 0
 window-save-state = always
 
 # Quick terminal toggle (Quake-style)
