@@ -4,6 +4,9 @@
 -- i.e: <leader>w saves the current file
 vim.g.mapleader = ","
 
+-- Disable Ruby provider (macOS system Ruby 2.6 is too old, neovim gem requires 3.0+)
+vim.g.loaded_ruby_provider = 0
+
 -- Load config files
 require("config.options")
 require("config.keymaps")
@@ -30,6 +33,150 @@ vim.o.background = "dark"
 -- Save undo history
 vim.o.undofile = true
 
+-- =============================================
+-- LSP SERVER CONFIGURATIONS (Neovim 0.11+ API)
+-- Must be defined before lazy.nvim loads mason-lspconfig
+-- =============================================
+
+-- Helper to get root directory patterns
+local function root_pattern(...)
+  local patterns = { ... }
+  return function(bufnr)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    for _, pattern in ipairs(patterns) do
+      local match = vim.fs.find(pattern, { path = fname, upward = true })[1]
+      if match then
+        return vim.fn.fnamemodify(match, ":h")
+      end
+    end
+  end
+end
+
+-- Base LSP servers
+vim.lsp.config("gopls", {
+  flags = { debounce_text_changes = 200 },
+  settings = {
+    gopls = {
+      usePlaceholders = true,
+      gofumpt = true,
+      analyses = {
+        nilness = true,
+        unusedparams = true,
+        unusedwrite = true,
+        useany = true,
+      },
+      codelenses = {
+        gc_details = false,
+        generate = true,
+        regenerate_cgo = true,
+        run_govulncheck = true,
+        test = true,
+        tidy = true,
+        upgrade_dependency = true,
+        vendor = true,
+      },
+      experimentalPostfixCompletions = true,
+      completeUnimported = true,
+      staticcheck = true,
+      directoryFilters = { "-.git", "-node_modules" },
+      semanticTokens = true,
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
+})
+
+vim.lsp.config("ts_ls", {
+  init_options = {
+    hostInfo = "neovim",
+    preferences = {
+      importModuleSpecifierPreference = "non-relative",
+    },
+  },
+  single_file_support = false,
+})
+
+vim.lsp.config("buf_ls", {})
+
+vim.lsp.config("astro", {
+  cmd = { "astro-ls", "--stdio" },
+  filetypes = { "astro" },
+  root_dir = root_pattern("astro.config.mjs", "astro.config.js", "astro.config.ts", "package.json"),
+})
+
+vim.lsp.config("eslint", {
+  settings = {
+    codeActionOnSave = {
+      enable = true,
+      mode = "all",
+    },
+  },
+})
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
+-- Additional LSP servers (installed via Mason)
+vim.lsp.config("bashls", {
+  filetypes = { "sh", "bash" },
+})
+
+vim.lsp.config("cssls", {})
+
+vim.lsp.config("html", {})
+
+vim.lsp.config("jsonls", {
+  settings = {
+    json = {
+      validate = { enable = true },
+    },
+  },
+})
+
+vim.lsp.config("yamlls", {
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
+})
+
+vim.lsp.config("pyright", {})
+
+vim.lsp.config("ruff", {})
+
+vim.lsp.config("rust_analyzer", {
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
+vim.lsp.config("zls", {})
+
+vim.lsp.config("intelephense", {})
+
+-- stylua is a formatter (not LSP), but mason-lspconfig erroneously registers it
+-- Adding empty config to silence checkhealth warning
+vim.lsp.config("stylua", {})
+
 -- run :GoBuild or :GoTestCompile based on the go file
 local function build_go_files()
   if vim.endswith(vim.api.nvim_buf_get_name(0), "_test.go") then
@@ -43,6 +190,16 @@ local slow_format_filetypes = { astro = true }
 
 -- Build plugin list
 local plugins = {
+  -- Icons (required by fzf-lua, lualine, oil, etc.)
+  -- Not lazy so fzf-lua and other plugins can detect it at startup
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = false,
+    config = function()
+      require("nvim-web-devicons").setup()
+    end,
+  },
+
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     lazy = true, -- loaded by treesitter or when needed
@@ -121,19 +278,26 @@ local plugins = {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    opts = {
-      -- Better input prompts (vim.ui.input)
-      input = { enabled = true },
-      -- Better select menus (vim.ui.select) - used by code actions
-      picker = {
-        ui_select = true,
-      },
-      -- Notification system
-      notifier = {
-        enabled = true,
-        top_down = false,
-      },
-    },
+    config = function()
+      local Snacks = require("snacks")
+      Snacks.setup({
+        -- Better input prompts (vim.ui.input)
+        input = { enabled = true },
+        -- Better select menus (vim.ui.select) - used by code actions
+        picker = {
+          enabled = true,
+          ui_select = true,
+        },
+        -- Notification system
+        notifier = {
+          enabled = true,
+          top_down = false,
+        },
+      })
+      -- Explicitly set vim.ui handlers
+      vim.ui.input = Snacks.input
+      vim.ui.select = Snacks.picker.select
+    end,
   },
   -- formatter
   {
@@ -657,10 +821,83 @@ local plugins = {
         },
       })
 
+      -- Additional LSP servers (installed via Mason)
+      vim.lsp.config("bashls", {
+        capabilities = capabilities,
+        filetypes = { "sh", "bash" },
+      })
+
+      vim.lsp.config("cssls", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("html", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+        settings = {
+          json = {
+            validate = { enable = true },
+          },
+        },
+      })
+
+      vim.lsp.config("yamlls", {
+        capabilities = capabilities,
+        settings = {
+          yaml = {
+            keyOrdering = false,
+          },
+        },
+      })
+
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("ruff", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("rust_analyzer", {
+        capabilities = capabilities,
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              command = "clippy",
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("zls", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("intelephense", {
+        capabilities = capabilities,
+      })
+
       -- Enable all configured LSP servers
       -- Note: When private config is loaded, it may provide custom LSP wrappers
       -- that replace the base servers for better monorepo support
       local base_servers = { "gopls", "ts_ls", "buf_ls", "astro", "eslint", "lua_ls" }
+
+      -- Additional servers (auto-start when their filetypes are opened)
+      local additional_servers = {
+        "bashls",
+        "cssls",
+        "html",
+        "jsonls",
+        "yamlls",
+        "pyright",
+        "ruff",
+        "rust_analyzer",
+        "zls",
+        "intelephense",
+      }
 
       if private.setup_lsp then
         -- Private config may have its own gopls wrappers, so exclude the base ones
@@ -669,7 +906,11 @@ local plugins = {
         end, base_servers)
       end
 
+      -- Enable base servers
       vim.lsp.enable(base_servers)
+
+      -- Enable additional servers
+      vim.lsp.enable(additional_servers)
 
       -- Enable private/work LSP servers if available
       if private.setup_lsp then
@@ -711,14 +952,15 @@ local plugins = {
   -- Highlight, edit, and navigate code
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master", -- Pin to master branch (stable API) until ecosystem catches up with main branch
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      { "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
       "RRethy/nvim-treesitter-endwise",
       "andymass/vim-matchup",
     },
     build = ":TSUpdate",
     config = function()
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      ---@diagnostic disable-next-line: missing-fields
       require("nvim-treesitter.configs").setup({
         endwise = {
           enable = true,
@@ -742,6 +984,7 @@ local plugins = {
           "htmldjango",
           "proto",
           "python",
+          "regex", -- needed for Snacks.picker
           "rust",
           "yaml",
           "tsx",

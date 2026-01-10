@@ -1,67 +1,116 @@
-# Homebrew Bundle
-# Run: brew bundle install
-
-# Core CLI tools
-brew "fish"
-brew "starship"
-brew "neovim"
-brew "tmux"
-brew "git"
-brew "fzf"
-brew "ripgrep"
-brew "fd"
-brew "bat"
-brew "eza"
-brew "jq"
-brew "gh"
-brew "wget"
-brew "curl"
-
-# Modern CLI replacements (https://remysharp.com/2018/08/23/cli-improved)
-brew "htop"           # better top
-brew "prettyping"     # better ping
-brew "git-delta"      # better git diff pager
-brew "difftastic"     # structural diff (AST-aware)
-brew "mergiraf"       # structural merge driver
-brew "ncdu"           # better du (disk usage)
-brew "tldr"           # better man (simplified examples)
-brew "entr"           # run commands on file changes
-brew "zoxide"         # better cd/autojump
-brew "lazygit"        # TUI for git (interactive staging, rebase, etc.)
-
-# Language version managers
-brew "pyenv"
-
-# Languages (system-level, version managers preferred for projects)
-brew "go"
-brew "node"
-
-# Shell utilities
+tap "aaronraimist/tap"
+tap "equinix-labs/otel-cli"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "oven-sh/bun"
+tap "samuelmeuli/tap"
+tap "sheerun/git-squash"
+tap "stripe/stripe-cli"
+brew "xz"
 brew "atuin"
-brew "direnv"
-brew "terminal-notifier"  # macOS notifications from CLI (used by claude-notify)
-
-# Cloud utilities
+brew "openssl@3"
 brew "awscli"
-
-# Code formatting (for Neovim)
-brew "stylua"         # Lua
-brew "prettier"       # JS/TS/CSS/HTML/JSON
-brew "shellcheck"     # Shell scripts
-brew "black"          # Python
-brew "ruff"           # Python (fast linter/formatter)
-brew "gofumpt"        # Go
-
-# macOS Applications
-cask "ghostty"
-cask "slack"
+brew "bat"
+brew "biome"
+brew "black"
+brew "chafa"
+brew "cloud-nuke"
+brew "coreutils"
+brew "curl"
+brew "deno"
+brew "difftastic"
+brew "direnv"
+brew "docker-clean"
+brew "entr"
+brew "eza"
+brew "fd"
+brew "unbound"
+brew "gnutls"
+brew "ffmpeg"
+brew "findutils"
+brew "fish"
+brew "fzf"
+brew "gawk"
+brew "gh"
+brew "ghostscript"
+brew "git"
+brew "git-delta"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "go"
+brew "gofumpt"
+brew "htop"
+brew "hub"
+brew "hugo"
+brew "imagemagick"
+brew "jq"
+brew "just"
+brew "lazygit"
+brew "libpq", link: true
+brew "lua"
+brew "luarocks"
+brew "mas"
+brew "mergiraf"
+brew "ncdu"
+brew "neovim"
+brew "node"
+brew "ripgrep"
+brew "opencode"
+brew "otel-cli"
+brew "pkgconf"
+brew "prettier"
+brew "prettyping"
+brew "pyenv"
+brew "redis"
+brew "rsync"
+brew "ruff"
+brew "rustup"
+brew "shellcheck"
+brew "starship"
+brew "stylua"
+brew "tectonic"
+brew "terminal-notifier"
+brew "tldr"
+brew "tmux"
+brew "tree-sitter"
+brew "tree-sitter-cli"
+brew "viu"
+brew "wget"
+brew "yarn"
+brew "yt-dlp"
+brew "zlib"
+brew "zoxide"
+brew "oven-sh/bun/bun"
+brew "sheerun/git-squash/git-squash"
+cask "claude"
+cask "claude-code"
+cask "discord"
 cask "docker-desktop"
-cask "visual-studio-code"
-cask "gpg-suite-no-mail"
-cask "zoom"
-cask "iina"
-cask "transmission"
-
-# Fonts
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
+cask "ghostty"
+cask "goland"
+cask "google-chrome"
+cask "gpg-suite-no-mail"
+cask "iina"
+cask "notion"
+cask "signal"
+cask "slack"
+cask "transmission"
+cask "utm"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+cask "zoom"
+mas "AdGuard for Safari", id: 1440147259
+mas "Cake Wallet", id: 1334702542
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "Keynote", id: 409183694
+mas "Messenger", id: 1480068668
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "PrimeVideo", id: 545519333
+mas "SingleFile", id: 6444322545
+mas "uBlacklist for Safari", id: 1547912640

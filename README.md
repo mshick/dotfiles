@@ -70,11 +70,6 @@ dotfiles/
 │   │   ├── ssh-agent.fish
 │   │   └── abbreviations.fish
 │   └── functions/        # Fish functions (git aliases, utilities)
-├── .zshenv               # Main zsh env
-├── zsh/
-│   ├── .zshrc            # Main config
-│   ├── .zlogin           # Login
-│   ├── .zprofile         # Custom user settings
 ├── init.lua              # Neovim config (lazy.nvim)
 ├── lua/config/           # Neovim modules
 ├── ghostty/config        # Terminal config

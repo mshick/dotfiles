@@ -22,7 +22,7 @@ window-save-state = always
 
 cursor-color = #607487
 background = #252b37
-background-opacity = 0.95
+background-opacity = 1
 background-blur-radius = 20
 
 mouse-hide-while-typing = true
