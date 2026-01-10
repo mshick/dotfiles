@@ -1,105 +1,107 @@
 [user]
+	name = Michael Shick
+	email = m@shick.us
     # Set these in ~/.gitconfig.local
     # name = Your Name
     # email = your@email.com
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [core]
-    excludesfile = ~/.gitignore_global
-    editor = nvim
-    pager = delta
+	excludesfile = /Users/mshick/.gitignore_global
+	editor = nvim
+	pager = delta
 
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
-    navigate = true      # use n/N to jump between diff sections
-    side-by-side = true  # side-by-side view
-    line-numbers = true
+	navigate = true
+	side-by-side = true
+	line-numbers = true
 
 [pull]
-    rebase = false
+	rebase = true
 
 [rerere]
-    enabled = true       # remember conflict resolutions
+	enabled = true
 
 [branch]
-    sort = -committerdate  # show recent branches first
+	sort = -committerdate
 
 [column]
-    ui = auto            # nicer column formatting
+	ui = auto
 
 [push]
-    default = current
-    autoSetupRemote = true
+	default = current
+	autoSetupRemote = true
 
 [fetch]
-    prune = true
+	prune = true
 
 [rebase]
-    autoStash = true
+	autoStash = true
 
 [merge]
-    conflictstyle = diff3
+	conflictstyle = diff3
 
 [diff]
-    colorMoved = default
-    tool = difftastic
+	colorMoved = default
+	tool = difftastic
 
 [difftool]
-    prompt = false
+	prompt = false
 
 [difftool "difftastic"]
-    cmd = difft "$LOCAL" "$REMOTE"
+	cmd = difft \"$LOCAL\" \"$REMOTE\"
 
 [pager]
-    difftool = true
+	difftool = true
 
 # Mergiraf - structural merge driver
 [merge "mergiraf"]
-    name = mergiraf
-    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 
 [color]
-    ui = true
+	ui = true
 
 [alias]
     # Status
-    s = status -sb
+	s = status -sb
 
     # Logging
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    ll = log --oneline
-    last = log -1 HEAD --stat
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = log --oneline
+	last = log -1 HEAD --stat
 
     # Branches
-    co = checkout
-    cob = checkout -b
-    br = branch
-    bra = branch -a
+	co = checkout
+	cob = checkout -b
+	br = branch
+	bra = branch -a
 
     # Commits
-    cm = commit -m
-    ca = commit --amend
-    can = commit --amend --no-edit
+	cm = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
 
     # Diff
-    d = diff
-    dc = diff --cached
+	d = diff
+	dc = diff --cached
 
     # Undo
-    undo = reset HEAD~1 --mixed
-    unstage = reset HEAD --
+	undo = reset HEAD~1 --mixed
+	unstage = reset HEAD --
 
     # Stash
-    sl = stash list
-    sp = stash pop
-    ss = stash save
+	sl = stash list
+	sp = stash pop
+	ss = stash save
 
     # Clean
-    cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d"
+	cleanup = !git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d
 
 [include]
     # Local/private config (not in dotfiles repo)

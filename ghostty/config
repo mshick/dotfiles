@@ -7,7 +7,7 @@ font-size = 14
 font-feature = "-calt"
 
 # shell-integration-features = sudo
-shell-integration = zsh
+shell-integration = fish
 
 # Leading
 adjust-cell-height = 35%

@@ -16,7 +16,7 @@ os := if os() == "macos" { "macos" } else if os() == "linux" { "linux" } else { 
 # ============================================================================
 
 # Full installation (run this on a new machine)
-install: install-homebrew install-packages  install-zsh install-tmux-plugins link setup-git
+install: install-homebrew install-packages  install-tmux-plugins link setup-git
     @echo "✓ Installation complete! Restart your terminal."
 
 # Configure git with base settings and user info
@@ -140,7 +140,7 @@ install-homebrew:
 install-packages: install-homebrew
     brew bundle --file=Brewfile
 
-# Install fish shell
+# Install fish shell and set as default
 install-fish:
     #!/usr/bin/env bash
     if ! grep -q "$(which fish)" /etc/shells; then
@@ -152,20 +152,6 @@ install-fish:
     # Install fisher plugin manager
     fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
     fish -c "fisher update"
-
-# Install zsh shell and set as default
-install-zsh:
-    #!/usr/bin/env bash
-    if [ "$SHELL" != "$(which zsh)" ]; then
-        chsh -s "$(which zsh)"
-    fi
-
-    if [ ! -d ~/.config/zim ]; then
-        # Install zimfw
-        mkdir -p ~/.config/zim
-        curl -L https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh -o ~/.config/zim/zimfw.zsh
-        zsh ~/.config/zim/zimfw.zsh install
-    fi
 
 # Install tmux plugin manager (TPM)
 install-tmux-plugins:
@@ -184,7 +170,7 @@ install-tmux-plugins:
 # ============================================================================
 
 # Link all dotfiles to home directory
-link: link-fish link-zsh link-neovim link-terminal link-git link-tmux link-starship link-claude link-bin
+link: link-fish link-neovim link-terminal link-git link-tmux link-starship link-claude link-bin
     @echo "✓ All configs linked"
 
 # Link fish configuration
@@ -196,12 +182,6 @@ link-fish:
     @for f in {{justfile_directory()}}/fish/conf.d/*.fish; do ln -sf "$$f" ~/.config/fish/conf.d/; done
     @for f in {{justfile_directory()}}/fish/functions/*.fish; do ln -sf "$$f" ~/.config/fish/functions/; done
     @echo "✓ Fish config linked"
-
-link-zsh:
-    @ln -sf {{justfile_directory()}}/.zshrc ~/.zshrc
-    @mkdir -p ~/.config/zsh
-    @for f in {{justfile_directory()}}/zsh/*; do ln -sf "$$f" ~/.config/zsh/; done
-    @echo "✓ Zsh config linked"
 
 # Link Neovim configuration
 link-neovim:
@@ -254,7 +234,7 @@ link-bin:
 # ============================================================================
 
 # Update all packages and plugins
-update: update-brew update-fish update-zsh update-neovim update-tmux
+update: update-brew update-fish update-neovim update-tmux
     @echo "✓ All updates complete"
 
 # Update Homebrew packages
@@ -264,10 +244,6 @@ update-brew:
 # Update fish plugins
 update-fish:
     fish -c "fisher update"
-
-# Update Zsh plugins
-update-zsh:
-    zimfw update
 
 # Update Neovim plugins
 update-neovim:
@@ -299,7 +275,7 @@ backup-brew:
 check:
     #!/usr/bin/env bash
     echo "Checking installed tools..."
-    tools=("fish" "zsh" "nvim" "starship" "fzf" "git" "tmux" "ghostty" "bat" "fd" "rg" "zoxide" "direnv" "difft" "mergiraf")
+    tools=("fish" "nvim" "starship" "fzf" "git" "tmux" "ghostty" "bat" "fd" "rg" "zoxide" "direnv" "difft" "mergiraf")
     for tool in "${tools[@]}"; do
         if command -v $tool &> /dev/null; then
             echo "✓ $tool"
@@ -319,7 +295,6 @@ doctor:
     echo "=== Symlinks ==="
     links=(
         "$HOME/.config/fish/config.fish"
-        "$HOME/.config/.zshenv"
         "$HOME/.config/nvim/init.lua"
         "$HOME/.config/ghostty/config"
         "$HOME/.config/starship.toml"
@@ -359,20 +334,12 @@ doctor:
     fi
     echo ""
 
-    if zimfw version 2>/dev/null; then
-        echo "✓ Zimfw (zsh)"
-    else
-        echo "✗ Zimfw not installed (run: just install-zsh)"
-        ((errors++))
-    fi
-    echo ""
-
     # Check shell
     echo "=== Shell ==="
-    if [ "$SHELL" = "$(which zsh)" ]; then
-        echo "✓ Default shell is zsh"
+    if [ "$SHELL" = "$(which fish)" ]; then
+        echo "✓ Default shell is fish"
     else
-        echo "⚠ Default shell is $SHELL (not zsh)"
+        echo "⚠ Default shell is $SHELL (not fish)"
     fi
     echo ""
 
@@ -399,19 +366,6 @@ lint:
         else
             echo "✗ $(basename $f)"
             fish -n "$f"
-            ((errors++))
-        fi
-    done
-
-    # Zsh configs
-    echo ""
-    echo "=== Zsh Shell ==="
-    for f in {{justfile_directory()}}/.zshenv {{justfile_directory()}}/zsh/*; do
-        if zsh -n "$f" 2>/dev/null; then
-            echo "✓ $(basename $f)"
-        else
-            echo "✗ $(basename $f)"
-            zsh -n "$f"
             ((errors++))
         fi
     done

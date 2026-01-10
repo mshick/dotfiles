@@ -60,12 +60,12 @@ vim.keymap.set("t", "<leader>q", "<C-\\><C-n>:q<cr>")
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
 -- Open terminal in vertical and horizontal split
-vim.keymap.set("n", "<leader>tv", "<cmd>vnew term://zsh<CR>", { noremap = true, desc = "Terminal (vsplit)" })
-vim.keymap.set("n", "<leader>ts", "<cmd>split term://zsh<CR>", { noremap = true, desc = "Terminal (split)" })
+vim.keymap.set("n", "<leader>tv", "<cmd>vnew term://fish<CR>", { noremap = true, desc = "Terminal (vsplit)" })
+vim.keymap.set("n", "<leader>ts", "<cmd>split term://fish<CR>", { noremap = true, desc = "Terminal (split)" })
 
 -- Open terminal in vertical and horizontal split, inside the terminal
-vim.keymap.set("t", "<leader>tv", "<c-w><cmd>vnew term://zsh<CR>", { noremap = true })
-vim.keymap.set("t", "<leader>ts", "<c-w><cmd>split term://zsh<CR>", { noremap = true })
+vim.keymap.set("t", "<leader>tv", "<c-w><cmd>vnew term://fish<CR>", { noremap = true })
+vim.keymap.set("t", "<leader>ts", "<c-w><cmd>split term://fish<CR>", { noremap = true })
 
 -- mappings to move out from terminal to other views
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")

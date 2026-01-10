@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
   callback = function(args)
     -- we don't use vim.startswith() and look for test:// because of vim-test
     -- vim-test starts tests in a terminal, which we want to keep in normal mode
-    if vim.endswith(vim.api.nvim_buf_get_name(args.buf), "zsh") then
+    if vim.endswith(vim.api.nvim_buf_get_name(args.buf), "fish") then
       vim.cmd("startinsert")
     end
   end,
