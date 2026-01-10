@@ -185,9 +185,9 @@ link-fish:
 
 # Link Neovim configuration
 link-neovim:
-    @mkdir -p ~/.config/nvim/lua/config
     @ln -sf {{justfile_directory()}}/init.lua ~/.config/nvim/init.lua
     @ln -sf {{justfile_directory()}}/.stylua.toml ~/.config/nvim/.stylua.toml
+    @mkdir -p ~/.config/nvim/lua/config
     @for f in {{justfile_directory()}}/lua/config/*.lua; do ln -sf "$$f" ~/.config/nvim/lua/config/; done
     @echo "✓ Neovim config linked"
 
