@@ -1,0 +1,7 @@
+# Local Claude Code settings
+.claude/
+
+# Private Settings
+.private.fish
+lua/private/
+scripts/uninstall-on-private.sh
