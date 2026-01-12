@@ -19,12 +19,11 @@ end
 
 # Common paths (cross-platform)
 for p in \
-    $HOME/development/go/bin \
+    $HOME/Code/go/bin \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $HOME/.humanlog/bin \
     $HOME/.bun/bin \
-    $HOME/.antigravity/antigravity/bin \
     $HOME/.dotfiles/bin
     test -d $p; and fish_add_path $p
 end

@@ -11,8 +11,8 @@ if test -z "$GHOSTTY_RESOURCES_DIR"
 end
 
 # Go
-set -gx GOBIN $HOME/development/go/bin
-set -gx GOPATH $HOME/development/go
+set -gx GOBIN $HOME/Code/go/bin
+set -gx GOPATH $HOME/Code/go
 
 # Editor
 set -gx EDITOR nvim
