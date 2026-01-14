@@ -189,6 +189,9 @@ link-fish:
     #!/usr/bin/env bash
     mkdir -p ~/.config/fish/conf.d
     mkdir -p ~/.config/fish/functions
+    # Remove existing symlinks to clean up stale links
+    find ~/.config/fish/conf.d -maxdepth 1 -type l -delete 2>/dev/null || true
+    find ~/.config/fish/functions -maxdepth 1 -type l -delete 2>/dev/null || true
     ln -sf {{justfile_directory()}}/config.fish ~/.config/fish/config.fish
     ln -sf {{justfile_directory()}}/fish_plugins ~/.config/fish/fish_plugins
     for f in {{justfile_directory()}}/fish/conf.d/*.fish; do
@@ -202,9 +205,11 @@ link-fish:
 # Link Neovim configuration
 link-neovim:
     #!/usr/bin/env bash
+    mkdir -p ~/.config/nvim/lua/config
+    # Remove existing symlinks to clean up stale links
+    find ~/.config/nvim/lua/config -maxdepth 1 -type l -delete 2>/dev/null || true
     ln -sf {{justfile_directory()}}/init.lua ~/.config/nvim/init.lua
     ln -sf {{justfile_directory()}}/.stylua.toml ~/.config/nvim/.stylua.toml
-    mkdir -p ~/.config/nvim/lua/config
     for f in {{justfile_directory()}}/lua/config/*.lua; do
         ln -sf "$f" ~/.config/nvim/lua/config/$(basename "$f")
     done
@@ -246,6 +251,8 @@ link-claude:
 link-bin:
     #!/usr/bin/env bash
     mkdir -p ~/.dotfiles/bin
+    # Remove existing symlinks to clean up stale links
+    find ~/.dotfiles/bin -maxdepth 1 -type l -delete 2>/dev/null || true
     for f in {{justfile_directory()}}/bin/*; do
         ln -sf "$f" ~/.dotfiles/bin/$(basename "$f")
     done
