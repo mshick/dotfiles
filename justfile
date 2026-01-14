@@ -16,7 +16,7 @@ os := if os() == "macos" { "macos" } else if os() == "linux" { "linux" } else { 
 # ============================================================================
 
 # Full installation (run this on a new machine)
-install: install-homebrew install-packages  install-tmux-plugins link setup-git
+install: install-homebrew install-packages install-tmux-plugins link setup-git
     @echo "✓ Installation complete! Restart your terminal."
 
 # Configure git with base settings and user info

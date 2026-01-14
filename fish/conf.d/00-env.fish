@@ -1,5 +1,8 @@
 # Environment variables
 
+fnm env --use-on-cd --shell fish | source
+
+
 # Ghostty resources (cross-platform)
 if test -z "$GHOSTTY_RESOURCES_DIR"
     switch (uname)
@@ -15,7 +18,7 @@ set -gx GOBIN $HOME/Code/go/bin
 set -gx GOPATH $HOME/Code/go
 
 # Editor
-set -gx EDITOR nvim
+set -gx EDITOR code
 
 # Python version manager (pyenv)
 set -gx PYENV_ROOT $HOME/.pyenv
@@ -37,8 +40,8 @@ set -gx BAT_THEME "base16"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx MANROFFOPT "-c"
 
-# NVM directory
-set -gx NVM_DIR "$HOME/.nvm"
+# fnm directory
+set -gx FNM_DIR "$HOME/.fnm"
 
 # Bun
 set -gx BUN_INSTALL "$HOME/.bun"
