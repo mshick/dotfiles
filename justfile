@@ -149,10 +149,18 @@ install-fish:
     if [ "$SHELL" != "$(which fish)" ]; then
         chsh -s "$(which fish)"
     fi
+    # Remove existing fisher files if present (prevents conflicts during install)
+    if [ -f ~/.config/fish/functions/fisher.fish ]; then
+        echo "Removing existing ~/.config/fish/functions/fisher.fish..."
+        rm ~/.config/fish/functions/fisher.fish
+    fi
+    if [ -f ~/.config/fish/completions/fisher.fish ]; then
+        echo "Removing existing ~/.config/fish/completions/fisher.fish..."
+        rm ~/.config/fish/completions/fisher.fish
+    fi
     # Install fisher plugin manager
     fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
     fish -c "fisher update"
-    fish -c "fisher install jorgebucaran/nvm.fish"
 
 # Install tmux plugin manager (TPM)
 install-tmux-plugins:
@@ -163,6 +171,8 @@ install-tmux-plugins:
     else
         echo "TPM already installed"
     fi
+    # Ensure tmux loads the latest config (for TMUX_PLUGIN_MANAGER_PATH)
+    tmux start-server \; source-file ~/.tmux.conf 2>/dev/null || true
     # Install plugins
     ~/.tmux/plugins/tpm/bin/install_plugins || true
 

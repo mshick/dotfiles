@@ -21,7 +21,6 @@ set -gx EDITOR nvim
 set -gx PYENV_ROOT $HOME/.pyenv
 
 # FZF configuration
-# Colors match Poimandres theme
 set -gx FZF_DEFAULT_OPTS '--color=bg+:#303340,bg:#252b37,spinner:#5de4c7,hl:#5fb3a1,fg:#a6accd,header:#5fb3a1,info:#89ddff,pointer:#5de4c7,marker:#fffac2,fg+:#e4f0fb,prompt:#5de4c7,hl+:#5de4c7 --height=40% --layout=reverse --border'
 
 # File finder (used by fzf default and Ctrl+T)
@@ -43,10 +42,6 @@ set -gx NVM_DIR "$HOME/.nvm"
 
 # Bun
 set -gx BUN_INSTALL "$HOME/.bun"
-
-# Disable warnings/features
-set -gx PSCALE_DISABLE_DEV_WARNING 1
-set -gx DISABLE_SPRING 1
 
 # Cache Homebrew prefix as universal variable (avoid calling brew --prefix every shell start)
 if not set -q HOMEBREW_PREFIX

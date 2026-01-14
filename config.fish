@@ -44,12 +44,6 @@ if status is-interactive
         and source $GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish
     end
 
-    # VSCode shell integration
-    if set -q TERM_PROGRAM
-        string match -q "$TERM_PROGRAM" "vscode"
-        and . (code --locate-shell-integration-path fish)
-    end
-
     fish_add_path /Applications/Ghostty.app/Contents/MacOS
 
     # Private/work-related config (not in git)
