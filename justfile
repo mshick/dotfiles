@@ -181,7 +181,7 @@ install-tmux-plugins:
 # ============================================================================
 
 # Link all dotfiles to home directory
-link: link-fish link-neovim link-terminal link-git link-tmux link-starship link-claude link-bin
+link: link-fish link-zsh link-neovim link-terminal link-git link-tmux link-starship link-claude link-bin
     @echo "✓ All configs linked"
 
 # Link fish configuration
@@ -201,6 +201,12 @@ link-fish:
         ln -sf "$f" ~/.config/fish/functions/$(basename "$f")
     done
     echo "✓ Fish config linked"
+
+
+# Link .zshrc file
+link-zsh:
+    @ln -sf {{justfile_directory()}}/.zshrc ~/.zshrc
+    @echo "✓ Zsh config linked"
 
 # Link Neovim configuration
 link-neovim:
