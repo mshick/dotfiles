@@ -23,7 +23,7 @@ if status is-interactive
     command -q fzf; and fzf --fish 2>/dev/null | source
 
     # Python version manager
-    command -q pyenv; and pyenv init - | source
+    # command -q pyenv; and pyenv init - | source
 
     # Direnv (auto-load .envrc files)
     command -q direnv; and direnv hook fish | source

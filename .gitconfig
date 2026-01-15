@@ -22,7 +22,7 @@
 	line-numbers = true
 
 [pull]
-	rebase = true
+	rebase = false
 
 [rerere]
 	enabled = true
