@@ -150,17 +150,17 @@ install-fish:
         chsh -s "$(which fish)"
     fi
     # Remove existing fisher files if present (prevents conflicts during install)
-    if [ -f ~/.config/fish/functions/fisher.fish ]; then
-        echo "Removing existing ~/.config/fish/functions/fisher.fish..."
-        rm ~/.config/fish/functions/fisher.fish
-    fi
-    if [ -f ~/.config/fish/completions/fisher.fish ]; then
-        echo "Removing existing ~/.config/fish/completions/fisher.fish..."
-        rm ~/.config/fish/completions/fisher.fish
-    fi
+    #if [ -f ~/.config/fish/functions/fisher.fish ]; then
+    #    echo "Removing existing ~/.config/fish/functions/fisher.fish..."
+    #    rm ~/.config/fish/functions/fisher.fish
+    #fi
+    #if [ -f ~/.config/fish/completions/fisher.fish ]; then
+    #    echo "Removing existing ~/.config/fish/completions/fisher.fish..."
+    #    rm ~/.config/fish/completions/fisher.fish
+    #fi
     # Install fisher plugin manager
-    fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
-    fish -c "fisher update"
+    #fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+    #fish -c "fisher update"
 
 # Install tmux plugin manager (TPM)
 install-tmux-plugins:
@@ -269,7 +269,7 @@ link-bin:
 # ============================================================================
 
 # Update all packages and plugins
-update: update-brew update-fish update-neovim update-tmux
+update: update-brew update-neovim update-tmux
     @echo "✓ All updates complete"
 
 # Update Homebrew packages
@@ -277,8 +277,8 @@ update-brew:
     brew update && brew upgrade
 
 # Update fish plugins
-update-fish:
-    fish -c "fisher update"
+# update-fish:
+#     fish -c "fisher update"
 
 # Update Neovim plugins
 update-neovim:
