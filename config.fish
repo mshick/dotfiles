@@ -5,9 +5,6 @@
 #   - conf.d/ssh-agent.fish   - SSH agent setup
 #   - conf.d/abbreviations.fish - Command abbreviations
 
-fnm env --use-on-cd --shell fish | source
-
-
 # Disable greeting
 set fish_greeting ""
 
@@ -32,6 +29,8 @@ if status is-interactive
     command -q zoxide; and zoxide init fish --cmd j | source
 
     # fnm (Node version manager)
+    # --use-on-cd
+    command -q fnm; and fnm env --shell fish | source
     command -q fnm; and fnm completions --shell fish | source
 
     # Homebrew completions (use cached HOMEBREW_PREFIX)

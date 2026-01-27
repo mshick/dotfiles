@@ -1,8 +1,3 @@
-# Environment variables
-
-fnm env --use-on-cd --shell fish | source
-
-
 # Ghostty resources (cross-platform)
 if test -z "$GHOSTTY_RESOURCES_DIR"
     switch (uname)
