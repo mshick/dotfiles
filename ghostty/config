@@ -67,3 +67,6 @@ keybind = shift+enter=text:\n
 # attention = dock icon bounce
 # audio = play sound
 bell-features = system,attention,audio
+
+# Get the latest
+auto-update-channel = tip
