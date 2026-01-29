@@ -2,10 +2,6 @@
 *.swp
 *.swo
 *~
-.idea/
-.vscode/
-*.sublime-workspace
-*.sublime-project
 
 # OS generated
 .DS_Store
@@ -14,12 +10,6 @@
 .Spotlight-V100
 .Trashes
 Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# Logs
-*.log
-logs/
 
 # Temp files
 tmp/
@@ -30,22 +20,10 @@ temp/
 # Dependencies
 node_modules/
 bower_components/
-vendor/
-.bundle/
-
-# Build outputs
-dist/
-build/
-*.egg-info/
-__pycache__/
-*.pyc
-*.pyo
 
 # Environment files
-.env
 .env.local
 .env.*.local
-.envrc
 
 # Secrets (never commit these)
 *.pem
@@ -65,6 +43,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /.claude/settings.local*
-/.cursor/
-
-/.playwright-mcp/
