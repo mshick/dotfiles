@@ -5,6 +5,7 @@
       "Bash(npx tsx:*)"
     ]
   },
+  "model": "opus",
   "hooks": {
     "PreCompact": [
       {
@@ -44,7 +45,9 @@
     "ralph-wiggum@claude-plugins-official": true,
     "sentry@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "superpowers@superpowers-marketplace": true,
+    "gopls-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "mcpServers": {

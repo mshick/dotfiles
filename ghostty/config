@@ -70,3 +70,5 @@ bell-features = system,attention,audio
 
 # Get the latest
 auto-update-channel = tip
+
+# term = xterm-kitty

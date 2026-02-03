@@ -10,7 +10,7 @@
 
 [core]
 	excludesfile = /Users/mshick/.gitignore_global
-	editor = nvim
+	editor = code
 	pager = delta
 
 [interactive]
