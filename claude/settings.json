@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Skill(dev-browser:dev-browser)",
-      "Bash(npx tsx:*)"
+      "Bash(npx tsx:*)",
+      "Bash(VITEST_NO_DOCKER=1 npx vitest:*)"
     ]
   },
   "model": "opus",
@@ -37,12 +38,7 @@
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "database-design@claude-code-workflows": true,
-    "dev-browser@dev-browser-marketplace": true,
-    "document-skills@anthropic-agent-skills": true,
     "frontend-design@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
-    "ralph-wiggum@claude-plugins-official": true,
     "sentry@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
@@ -50,6 +46,7 @@
     "gopls-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
   "mcpServers": {
     "context7": {
       "args": [
@@ -80,5 +77,6 @@
       ],
       "command": "npx"
     }
-  }
+  },
+  "effortLevel": "medium"
 }
