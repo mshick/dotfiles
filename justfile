@@ -248,10 +248,20 @@ link-starship:
 
 # Link Claude Code configuration
 link-claude:
-    @mkdir -p ~/.claude
-    @ln -sf {{justfile_directory()}}/claude/settings.json ~/.claude/settings.json
-    @ln -sf {{justfile_directory()}}/claude/statusline-command.sh ~/.claude/statusline-command.sh
-    @echo "✓ Claude config linked"
+    #!/usr/bin/env bash
+    mkdir -p ~/.claude
+    DOTFILES="{{justfile_directory()}}"
+    ln -sf "$DOTFILES/claude/settings.json" ~/.claude/settings.json
+    ln -sf "$DOTFILES/claude/statusline-command.sh" ~/.claude/statusline-command.sh
+    for dir in skills agents; do
+        target=~/.claude/$dir
+        if [ -L "$target" ] || [ ! -e "$target" ]; then
+            ln -sf "$DOTFILES/claude/$dir" "$target"
+        elif [ -d "$target" ]; then
+            echo "⚠ ~/.claude/$dir is a real directory — move contents to dotfiles/claude/$dir first"
+        fi
+    done
+    echo "✓ Claude config linked"
 
 # Link helper scripts (tmux-open-in-nvim, tmux-fzf-files, etc.)
 link-bin:
@@ -338,6 +348,8 @@ doctor:
         "$HOME/.config/git/attributes"
         "$HOME/.claude/settings.json"
         "$HOME/.claude/statusline-command.sh"
+        "$HOME/.claude/skills"
+        "$HOME/.claude/agents"
     )
     for link in "${links[@]}"; do
         if [ -L "$link" ]; then

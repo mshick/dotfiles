@@ -6,7 +6,7 @@ $directory\
 $git_branch\
 $git_state\
 [](bg:focus fg:blueish-green)\
-$git_metrics\
+${custom.git_changes}\
 $git_status\
 $character\
 """
@@ -70,8 +70,12 @@ typechanged = ""
 untracked   = ""
 
 [git_metrics]
-disabled = false
-format   = "([ +$added ](bg:focus fg:bright-mint))([ -$deleted ](bg:focus fg:hot-red))[](fg:focus)"
+disabled = true
+
+[custom.git_changes]
+command = "git diff --name-only HEAD 2>/dev/null | wc -l | tr -d ' '"
+when    = "git diff --name-only HEAD 2>/dev/null | grep -q ."
+format  = "[ ~$output ](bg:focus fg:bright-mint)[](fg:focus)"
 
 [nodejs]
 disabled = true
