@@ -1,31 +1,57 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Skill(dev-browser:dev-browser)",
       "Bash(npx tsx:*)",
       "Bash(VITEST_NO_DOCKER=1 npx vitest:*)"
+    ],
+    "deny": [
+      "EnterPlanMode"
     ]
   },
-  "model": "opus",
   "hooks": {
-    "PreCompact": [
+    "WorktreeCreate": [
       {
-        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bd prime"
+            "command": "bash -c 'set -e; J=$(cat); R=$(echo \"$J\" | jq -r .cwd); B=$(echo \"$J\" | jq -r .branch); REF=$(echo \"$J\" | jq -r .ref); P=$(echo \"$J\" | jq -r .path); N=${P##*/}; D=\"$R/.worktrees/$N\"; mkdir -p \"$R/.worktrees\"; git -C \"$R\" worktree add -B \"$B\" \"$D\" \"$REF\" >&2; echo \"$D\"'"
           }
         ]
       }
     ],
-    "SessionStart": [
+    "WorktreeRemove": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'J=$(cat); R=$(echo \"$J\" | jq -r .cwd); P=$(echo \"$J\" | jq -r .path); git -C \"$R\" worktree remove --force \"$P\" >&2 || rm -rf \"$P\"'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/plugins/marketplaces/superpowers-extended-cc-marketplace/hooks/examples/pre-commit-check-tasks.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
       {
         "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bd prime"
+            "command": "bash ~/.claude/plugins/marketplaces/superpowers-extended-cc-marketplace/hooks/examples/stop-deflection-guard.sh"
           }
         ]
       }
@@ -33,19 +59,27 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "/bin/bash ~/.claude/statusline-command.sh"
+    "command": "/Users/mshick/.kanban-code/statusline.sh"
   },
   "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
+    "playwright-mcp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "sentry@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
     "superpowers@superpowers-marketplace": true,
-    "gopls-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-extended-cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "pcvelz/superpowers"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "medium",
+  "autoUpdatesChannel": "stable",
   "skipDangerousModePermissionPrompt": true,
   "mcpServers": {
     "context7": {
@@ -58,10 +92,6 @@
     "figma": {
       "transport": "http",
       "url": "https://mcp.figma.com/mcp"
-    },
-    "linear": {
-      "transport": "http",
-      "url": "https://mcp.linear.app/mcp"
     },
     "playwright": {
       "args": [
@@ -77,6 +107,5 @@
       ],
       "command": "npx"
     }
-  },
-  "effortLevel": "medium"
+  }
 }

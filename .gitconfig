@@ -1,6 +1,7 @@
 [user]
 	name = Michael Shick
 	email = m@shick.us
+	signingkey = /Users/mshick/.ssh/id_ed25519
     # Set these in ~/.gitconfig.local
     # name = Your Name
     # email = your@email.com
@@ -109,3 +110,8 @@
 
 [gpg]
 	  program = /usr/local/bin/gpg
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
