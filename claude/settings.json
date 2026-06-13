@@ -65,7 +65,7 @@
     "playwright-mcp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "sentry@claude-plugins-official": true,
-    "superpowers@superpowers-marketplace": true,
+    "superpowers@superpowers-marketplace": false,
     "typescript-lsp@claude-plugins-official": true,
     "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
   },

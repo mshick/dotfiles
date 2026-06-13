@@ -23,7 +23,6 @@ These dotfiles include configuration for modern CLI replacements ([reference](ht
 | `zoxide` | cd/autojump | Smarter directory jumping |
 | `htop` | top | Interactive process viewer |
 | `ncdu` | du | Interactive disk usage |
-| `tldr` | man | Simplified man pages |
 | `delta` | diff | Better git diffs (side-by-side, syntax highlighting) |
 
 ## Quick Start

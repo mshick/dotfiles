@@ -74,7 +74,6 @@ brew "starship"
 brew "stylua"
 brew "tectonic"
 brew "terminal-notifier"
-brew "tldr"
 brew "tmux"
 brew "tree-sitter"
 brew "tree-sitter-cli"
@@ -113,7 +112,6 @@ cask "vlc"
 cask "whatsapp"
 cask "zoom"
 mas "AdGuard for Safari", id: 1440147259
-mas "Cake Wallet", id: 1334702542
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Infuse", id: 1136220934

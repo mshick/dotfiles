@@ -50,10 +50,12 @@ Create a TodoWrite todo for each item and complete in order:
 4. **Define the goal and success signals** — outcome + observable signals
 5. **Identify non-goals** — what is explicitly out of scope
 6. **Decompose into child stories** — vertical, user-visible slices
-7. **Present epic + children for approval** — full draft before any `gh` call
-8. **Create child issues** — capture issue numbers
-9. **Create parent epic issue** — body links to children via task list
-10. **Report URLs** — paste links to all created issues
+7. **Map dependencies** — which children block which; flag the critical path
+8. **Present epic + children for approval** — full draft, including blockers
+9. **Create child issues** — capture issue numbers; use placeholders for blockers, then back-fill once all numbers are known
+10. **Create parent epic issue** — body links to children via task list, in dependency order
+11. **Back-fill blocker references** — edit each child to replace placeholders with real `#N` references
+12. **Report URLs** — paste links to all created issues, plus a one-line summary of the dependency order
 
 ## Process flow
 
@@ -76,12 +78,14 @@ digraph epic {
     "Ask: problem? user? today's behavior?" -> "Ask: goal + success signals?";
     "Ask: goal + success signals?" -> "Ask: non-goals?";
     "Ask: non-goals?" -> "Draft child stories";
-    "Draft child stories" -> "Present full epic + children";
+    "Draft child stories" -> "Map dependencies (blocks/blocked-by)";
+    "Map dependencies (blocks/blocked-by)" -> "Present full epic + children";
     "Present full epic + children" -> "User approves?";
     "User approves?" -> "Present full epic + children" [label="no, revise"];
     "User approves?" -> "Create child issues" [label="yes"];
     "Create child issues" -> "Create parent epic, link children";
-    "Create parent epic, link children" -> "Report URLs";
+    "Create parent epic, link children" -> "Back-fill blocker refs";
+    "Back-fill blocker refs" -> "Report URLs";
 }
 ```
 
@@ -150,6 +154,46 @@ If the user's idea decomposes into one child, it's not an epic — open a
 single issue instead. If it decomposes into more than ~7 children, ask
 whether two epics would be cleaner.
 
+## Mapping dependencies
+
+After the children are drafted but **before** presenting them for approval,
+walk through the list and identify dependencies. This is product-level
+sequencing, not technical sequencing — you're asking "which user-visible
+capability must exist before this other one is meaningful?", not "which
+table do we need first."
+
+Ask the user explicitly. Do not infer dependencies silently. A good prompt:
+
+> "Of these children, are any of them genuinely blocked by another? I'm
+> looking for cases where the later one is meaningless or shippable-but-
+> useless without the earlier one."
+
+For each child, capture:
+- **Blocked by** — issues that must ship first for this one to be valuable.
+- **Blocks** — the inverse, derived automatically.
+- **Independent** — explicitly note when nothing blocks it. This is a
+  feature, not an omission: it tells reviewers the work can start in
+  parallel.
+
+**Default to independence.** A dependency that exists only because "it
+makes sense to do it first" is not a real blocker — it's a preference.
+Reserve "blocked by" for hard ordering: the later issue cannot be shipped
+(or makes no sense to ship) until the earlier one is done.
+
+**Critical path.** If three or more children form a chain, call it out in
+the parent epic's "Notes" section as the critical path. This is what tells
+the team where to start.
+
+**GitHub semantics.** GitHub does not have first-class blocking
+relationships across all repos (sub-issues exist, but blocking does not).
+Use the textual conventions `Blocked by #N` and `Blocks #N` in issue
+bodies — these are the de facto standard, parsed by most tooling and
+recognizable to humans. Do not invent new syntax.
+
+**Cycles.** If your dependency graph has a cycle (A blocks B, B blocks A),
+something is wrong — usually the two children are actually one, or the
+boundary between them is in the wrong place. Stop and re-decompose.
+
 ## Issue templates
 
 Use these formats. Markdown only — no HTML, no frontmatter.
@@ -172,9 +216,16 @@ Use these formats. Markdown only — no HTML, no frontmatter.
 - <Thing we are explicitly not doing>
 
 ## Child stories
+List children in dependency order. Independent items can appear anywhere;
+blocked items must appear after what blocks them.
+
 - [ ] #<n> <Child title>
-- [ ] #<n> <Child title>
-- [ ] #<n> <Child title>
+- [ ] #<n> <Child title> — blocked by #<n>
+- [ ] #<n> <Child title> — blocked by #<n>, #<n>
+
+## Critical path
+<Optional. Include only if there's a chain of 3+ children. Example:
+"#12 → #14 → #17 must ship in order. #13 and #15 can run in parallel.">
 
 ## Notes
 <Any relevant context, links to prior discussion, constraints the team
@@ -199,9 +250,17 @@ Part of #<epic-number>.
 ## Out of scope
 - <Thing this issue does NOT cover>
 
+## Dependencies
+Blocked by: #<n>, #<n>   <!-- omit the line if independent -->
+Blocks: #<n>             <!-- omit the line if it blocks nothing -->
+
 ## Open questions
 - <Anything to resolve in the future brainstorming session>
 ```
+
+If a child is fully independent, write a single line `Dependencies: none`
+under the heading instead of omitting the section entirely — explicit
+independence is more useful to reviewers than a missing section.
 
 Both bodies stay at the product level. **No file paths, no schemas, no
 library names** unless the user explicitly told you to include them.
@@ -260,6 +319,29 @@ gh issue edit <child-number> --body-file "$UPDATED_BODY_FILE"
 children referencing it, then update the parent body. Either order works
 — pick one and be consistent within a single run.)
 
+### Resolving blocker references
+
+When child A is blocked by child B, you don't know B's issue number until
+B has been created. Handle this with a deterministic placeholder + back-fill:
+
+1. **Decide a creation order before the first `gh` call.** Topological
+   sort by dependency: issues with no blockers first, then issues whose
+   blockers are already created. Cycles → stop and re-decompose (see
+   "Mapping dependencies" above).
+2. **Use placeholder tokens** in initial bodies for any blocker not yet
+   created. Example: `Blocked by: <<BLOCKED_BY:billing-screen>>` where
+   `billing-screen` is a slug you assigned to that child during drafting.
+3. **Maintain a slug → issue-number map** as you create each issue. After
+   each `gh issue create`, record `slug = #N`.
+4. **After all children + parent exist**, replace every placeholder
+   token with the real `#N` reference and `gh issue edit --body-file`
+   each affected issue.
+
+Topological order means most or all blocker references are already known
+at creation time, minimizing back-fills. The placeholder mechanism exists
+for the cases where it isn't (e.g. mutual references between siblings via
+the parent's "Critical path" notes).
+
 **Labels** are optional. If the repo has labels like `epic` or
 `type:epic`, apply them via `--label`. Do not invent labels — only use
 ones that already exist (`gh label list`). Skip labels if unsure.
@@ -270,9 +352,14 @@ After all issues are created, output a short summary:
 
 ```
 Epic: <url>
-Children:
-  - <url> — <title>
-  - <url> — <title>
+Children (dependency order):
+  - <url> — <title>                     (independent)
+  - <url> — <title>                     (independent)
+  - <url> — <title>                     (blocked by #<n>)
+  - <url> — <title>                     (blocked by #<n>, #<n>)
+
+Critical path: #<n> → #<n> → #<n>       (omit if none)
+Start in parallel: #<n>, #<n>           (omit if everything is sequential)
 ```
 
 Then stop. Do not invoke any other skill. Do not start brainstorming the
@@ -289,6 +376,9 @@ they're ready.
 | Body contains schema, file paths, or library names | Strip them. Implementation belongs in the future per-child design session. |
 | Listing 12 children | Ask the user whether this is two epics. >7 is a smell. |
 | Creating issues without verifying the remote first | `gh repo view` is step one, every time. |
+| Inferring "blocked by" silently because work feels sequential | Ask the user. Sequencing-by-preference is not a blocker. Reserve "blocked by" for hard ordering. |
+| Dependency cycle (A blocks B, B blocks A) | The boundary between them is wrong. Re-decompose; do not paper over with notes. |
+| Creating children in arbitrary order, then editing every one to add `#N` blockers | Topologically sort first; create independent issues before their dependents so most blocker refs are known at creation time. |
 
 ## Red flags — stop and reconsider
 
@@ -296,6 +386,7 @@ they're ready.
 - About to write "implement", "build", "set up", or "wire up" in a child title → that's an engineering task, not a product story.
 - Cannot articulate the problem in one sentence → keep asking; don't draft yet.
 - About to write child stories that mention specific frameworks or files → those details belong in the future brainstorm of that child, not in the issue.
+- About to publish issues without a "Dependencies" line on each child → STOP. Even "Dependencies: none" is information; missing is ambiguity.
 
 ## Notes
 
