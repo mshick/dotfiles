@@ -22,6 +22,9 @@ if status is-interactive
     abbr -a bu "brew upgrade"
     abbr -a buc "brew upgrade && brew cleanup"
 
+    # Shell
+    abbr -a reload "exec fish"
+
     # LazyGit
     abbr -a lg lazygit
 

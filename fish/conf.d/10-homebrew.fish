@@ -1,3 +1,8 @@
+# Manage Homebrew upgrades manually - skip auto-update before brew commands
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
+# Hide the "Adjust how often..." env hints brew prints
+set -gx HOMEBREW_NO_ENV_HINTS 1
+
 # PATH additions - only add paths that exist
 # fish_add_path handles deduplication automatically
 
