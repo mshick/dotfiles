@@ -1,6 +1,5 @@
 tap "aaronraimist/tap", trusted: true
 tap "anomalyco/tap", trusted: true
-tap "dopplerhq/doppler", "https://github.com/DopplerHQ/homebrew-doppler.git"
 tap "equinix-labs/otel-cli", trusted: true
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "homebrew/cask"
@@ -195,6 +194,8 @@ cask "nikitabobko/tap/aerospace"
 cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # Browser for SQLite databases
 cask "db-browser-for-sqlite"
 # Universal database tool and SQL client
