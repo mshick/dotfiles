@@ -3,7 +3,7 @@ font-style = Regular
 font-style-bold = Bold
 font-style-italic = Italic
 font-style-bold-italic = Bold Italic
-font-size = 14
+font-size = 13
 font-feature = "-calt"
 
 # Shell command
@@ -35,7 +35,16 @@ copy-on-select = clipboard
 clipboard-trim-trailing-spaces = true
 
 # Theme
-theme = Gruvbox Dark Hard
+# Ghostty's bundled "Claude Dark" is built from Claude's v1 palette (warm greys).
+# Claude Desktop runs color-version v2, whose dark greys are neutral and darker.
+# Overrides below must stay after `theme` to win.
+theme = Claude Dark
+# background=v2 --bg-100/--_gray-850, foreground=v2 --text-000/--_gray-20,
+# selection=v2 --_gray-750
+background = #151515
+foreground = #f9f9f7
+selection-background = #2c2c2a
+selection-foreground = #f9f9f7
 
 # Window variables
 window-colorspace = display-p3

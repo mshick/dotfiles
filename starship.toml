@@ -1,58 +1,52 @@
-palette = "poimandres-storm"
+command_timeout = 2000
+palette         = "claude-dark"
 
 format = """
 $directory\
-[](bg:blueish-green fg:lower-mint)\
+[](bg:warm-gray fg:brand-deep)\
 $git_branch\
 $git_state\
-[](bg:focus fg:blueish-green)\
+[](bg:surface fg:warm-gray)\
 ${custom.git_dirty}\
 ${custom.git_clean}\
 $character\
 """
 
-[palettes.poimandres-storm]
-bg                  = "#252b37"
-black               = "#101010"
-blueish-green       = "#42675a"
-bluish-gray         = "#607487"
-bluishGray-brighter = "#7390aa"
-bright-mint         = "#5de4c7"
-bright-yellow       = "#fffac2"
-darker-gray         = "#868cad"
-desaturated-blue    = "#91b4d5"
-focus               = "#404350"
-gray                = "#a6accd"
-hot-red             = "#d0679d"
-light-blue          = "#add7ff"
-lower-blue          = "#89ddff"
-lower-mint          = "#5fb3a1"
-off-white           = "#e4f0fb"
-pink                = "#f087bd"
-selection           = "#33394a"
-white               = "#ffffff"
+[palettes.claude-dark]
+# Claude Desktop color-version v2 tokens (data-color-version=v2,
+# data-theme=claude, data-mode=dark). v1 greys were warm; v2 greys are neutral.
+brand      = "#d97757"  # --_brand-clay (unchanged in v2)
+brand-deep = "#c6613f"  # --_brand-clay-emphasized
+warm-gray  = "#383835"  # --_gray-700
+surface    = "#20201f"  # --_gray-800 = v2 --bg-000
+ink        = "#0d0d0d"  # --_gray-890 = v2 --bg-300
+text       = "#f9f9f7"  # --_gray-20 = v2 --text-000
+muted      = "#97958d"  # --_gray-350 = v2 --text-400
+red        = "#e66767"  # --_red-350 = v2 --danger-100
+green      = "#91d68b"  # --_green-200 = v2 --success-000
+yellow     = "#fab219"  # --_yellow-200 = v2 --warning-000
 
 [character]
 error_symbol   = "\n[❯](red)"
-success_symbol = "\n[❯](purple)"
+success_symbol = "\n[❯](brand)"
 vimcmd_symbol  = "\n[❮](green)"
 
 [battery]
 disabled = true
 
 [cmd_duration]
-format = "[$duration](gray)"
+format = "[$duration](muted)"
 
 [directory]
-format = "[](bright-mint)[ ](bg:bright-mint)[](bg:lower-mint fg:bright-mint)[ $path ](bg:lower-mint fg:black)"
+format = "[](brand)[ ](bg:brand)[](bg:brand-deep fg:brand)[ $path ](bg:brand-deep fg:ink)"
 
 [git_branch]
-format            = "[ $branch ](bg:blueish-green fg:off-white)"
+format            = "[ $branch ](bg:warm-gray fg:text)"
 truncation_length = 30
 truncation_symbol = "…"
 
 [git_state]
-format = "[ $state( $progress_current/$progress_total)](bg:blueish-green fg:bright-yellow)"
+format = "[ $state( $progress_current/$progress_total)](bg:warm-gray fg:yellow)"
 
 [git_status]
 disabled = true
@@ -61,14 +55,16 @@ disabled = true
 disabled = true
 
 [custom.git_dirty]
-command = "echo '✗'"
-when    = "git rev-parse --is-inside-work-tree 2>/dev/null && git status --porcelain 2>/dev/null | grep -q ."
-format  = "[ $output ](bg:focus fg:hot-red)[](fg:focus)"
+command      = "echo '✗'"
+require_repo = true
+when         = "git --no-optional-locks status --porcelain | grep -q ."
+format       = "[ $output ](bg:surface fg:red)[](fg:surface)"
 
 [custom.git_clean]
-command = "echo '✓'"
-when    = "git rev-parse --is-inside-work-tree 2>/dev/null && ! git status --porcelain 2>/dev/null | grep -q ."
-format  = "[ $output ](bg:focus fg:bright-mint)[](fg:focus)"
+command      = "echo '✓'"
+require_repo = true
+when         = "! git --no-optional-locks status --porcelain | grep -q ."
+format       = "[ $output ](bg:surface fg:green)[](fg:surface)"
 
 [nodejs]
 disabled = true
